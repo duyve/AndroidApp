@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--#########################################################################
+    #   Layout:                                                             #
+    #   The layout of the main activity of the application.                 #
+    #   Types: RelativeLayout, LinearLayout, GridLayout, FrameLayout        #
+    #########################################################################-->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
