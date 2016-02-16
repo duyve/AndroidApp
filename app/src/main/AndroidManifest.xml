@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.duyve.myapplication">
+    package="com.example.duyve.myapplication"
+    android:versionCode="1"
+    android:versionName="0.1">
 
     <!--#####################################################################
     #   SDK Settings:                                                       #
@@ -13,8 +15,25 @@
             android:targetSdkVersion="19" />-->
 
     <!--#####################################################################
+    #   Configuration:                                                      #
+    #   Specify the required input methods the app needs.                   #
+    #   We aren't actually using this yet.                                  #
+    #########################################################################-->
+    <!--<uses-configuration
+            android:reqHardKeyboard="true"/>-->
+
+    <!--#####################################################################
+    #   Features:                                                           #
+    #   Specify the required hardware on the device.                        #
+    #   We aren't actually using this yet.                                  #
+    #########################################################################-->
+    <!--<uses-feature
+            android:name="android.hardware.camera" />-->
+
+
+    <!--#####################################################################
     #   App Permissions:                                                    #
-    #   Specify what the app needs permission for to work properly/         #
+    #   Specify what the app needs permission for to work properly.         #
     #   We aren't actually using this yet.                                  #
     #########################################################################-->
     <!-- <uses-permission
