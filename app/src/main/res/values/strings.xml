@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="action_settings">Settings</string>
-    <string name="ratetext">Rate Ethan</string>
+    <string name="test_para"></string>
+    <string-array name="GroupMembers">
+        <item>Tristan</item>
+        <item>Ethan</item>
+        <item>Ryan</item>
+        <item>Willem</item>
+    </string-array>
 </resources>
