@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Boolean successful = data.getExtras().getBoolean("loginKeyReceive");
                 if (successful)
+                    // Replace with new logic
                     Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
             }
         }

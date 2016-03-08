@@ -68,7 +68,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!-- Activity1 -->
+        <!-- MainActivity -->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -80,15 +80,13 @@
             </intent-filter>
         </activity>
 
-        <!-- Activity2 -->
-
-
-        <!-- TODO -->
-
+        <!-- LoginActivity -->
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login">
         </activity>
+
+        <!-- Other -->
     </application>
 
 </manifest>
