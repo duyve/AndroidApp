@@ -64,6 +64,11 @@
         </activity>
 
         <!--Activity2-->
+        <activity
+            android:label="Login Activity"
+            android:name=".LoginActivity">
+        </activity>
+
         <!--TODO-->
 
     </application>

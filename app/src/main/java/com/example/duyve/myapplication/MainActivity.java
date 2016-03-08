@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity
     {
         Intent intent = new Intent(this, LoginActivity.class);
         intent.putExtra("loginKeySend", false);
-
         startActivityForResult(intent, REQUEST_CODE);
     }
 
