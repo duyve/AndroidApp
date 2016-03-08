@@ -3,20 +3,22 @@ package com.example.duyve.myapplication;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.app.LoaderManager.LoaderCallbacks;
-import android.content.CursorLoader;
 import android.content.Intent;
-import android.content.Loader;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Build;
-import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.app.LoaderManager.LoaderCallbacks;
+
+import android.content.CursorLoader;
+import android.content.Loader;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.AsyncTask;
+
+import android.os.Build;
+import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -47,7 +49,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
-    private static final String[] DUMMY_CREDENTIALS = new String[] {"wmpaul@iastate.edu:Password1"};
+    private static final String[] DUMMY_CREDENTIALS = new String[]{
+            "foo@example.com:hello", "bar@example.com:world"
+    };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -64,9 +68,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        Bundle extras = getIntent().getExtras();
-
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -82,7 +83,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     attemptLogin();
                     return true;
                 }
-
                 return false;
             }
         });
@@ -103,15 +103,24 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private void populateAutoComplete()
     {
-        if (!mayRequestContacts()) return;
+        if (!mayRequestContacts())
+        {
+            return;
+        }
 
         getLoaderManager().initLoader(0, null, this);
     }
 
     private boolean mayRequestContacts()
     {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return true;
-        if (checkSelfPermission(READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) return true;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+        {
+            return true;
+        }
+        if (checkSelfPermission(READ_CONTACTS) == PackageManager.PERMISSION_GRANTED)
+        {
+            return true;
+        }
         if (shouldShowRequestPermissionRationale(READ_CONTACTS))
         {
             Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
@@ -125,8 +134,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         }
                     });
         }
-        else requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
-
+        else
+        {
+            requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
+        }
         return false;
     }
 
@@ -140,7 +151,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (requestCode == REQUEST_READ_CONTACTS)
         {
             if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
                 populateAutoComplete();
+            }
         }
     }
 
@@ -152,7 +165,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     private void attemptLogin()
     {
-        if (mAuthTask != null) return;
+        if (mAuthTask != null)
+        {
+            return;
+        }
 
         // Reset errors.
         mEmailView.setError(null);
@@ -200,15 +216,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
-
-            finish();
         }
+
+        finish();
     }
 
     @Override
     public void finish()
     {
-        setResult(RESULT_OK, new Intent().putExtra("loginKeyReceive", true));
+        Intent intent = new Intent();
+
+        intent.putExtra("loginKeyReceive", true);
+        setResult(RESULT_OK, intent);
+
         super.finish();
     }
 
@@ -398,3 +418,4 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 }
+
