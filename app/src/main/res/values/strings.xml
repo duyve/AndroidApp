@@ -2,13 +2,14 @@
     <string name="app_name">getJobs();</string>
     <string name="action_settings">Settings</string>
     <string-array name="GroupMembers">
-        <item>Tristan</item>
-        <item>Ethan</item>
-        <item>Ryan</item>
-        <item>Willem</item>
+        <item>Tristan Duyvejonck</item>
+        <item>Ethan Williams</item>
+        <item>Ryan Pals</item>
+        <item>Willem Paul</item>
     </string-array>
 
     <!-- Strings related to login -->
+    <string name="title_activity_login">Log In</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">OK</string>
@@ -20,7 +21,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_login">Log In</string>
+
+    <!-- Strings related to edit resume -->
     <string name="title_activity_edit_resume">Edit Resume</string>
     <string name="header">Header</string>
     <string name="existingContent">Existing Content</string>
