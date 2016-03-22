@@ -21,4 +21,17 @@
         completions."
     </string>
     <string name="title_activity_login">Log In</string>
+    <string name="header">Header</string>
+    <string name="existingContent">Existing Content</string>
+    <string name="editHeader">Edit Header</string>
+    <string name="education">Eduction</string>
+    <string name="editEducation">Edit Education</string>
+    <string name="workExperience">Work Experience</string>
+    <string name="editWorkExperience">Edit Work Experience</string>
+    <string name="activities">Activities</string>
+    <string name="editActivities">Edit Activities</string>
+    <string name="skills">Skills</string>
+    <string name="editSkills">Edit Skills</string>
+    <string name="setNewHeader">set new header content</string>
+    <string name="save">Save and Update Resume</string>
 </resources>
