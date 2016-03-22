@@ -41,8 +41,12 @@ public class MainActivity extends AppCompatActivity
             {
                 Boolean successful = data.getExtras().getBoolean("loginKeyReceive");
                 if (successful)
+                {
+                    Intent intent = new Intent(this, EditResumeActivity.class);
+                    startActivity(intent);
+                }
                     // Replace with new logic
-                    Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
             }
         }
     }

@@ -19,7 +19,7 @@ public class EditResumeActivity extends Activity {
     public void onClick(View view){
         TextView text = (TextView) findViewById(R.id.textView2);
         String value = text.getText().toString();
-        Intent i = new Intent(this, editHeaderActivity.class);
+        Intent i = new Intent(this, EditHeaderActivity.class);
         i.putExtra("yourkey", value);
         startActivityForResult(i, 1);
     }
@@ -37,7 +37,7 @@ public class EditResumeActivity extends Activity {
         }
     }
 
-    public static class editHeaderActivity extends AppCompatActivity {
+    public static class EditHeaderActivity extends AppCompatActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
