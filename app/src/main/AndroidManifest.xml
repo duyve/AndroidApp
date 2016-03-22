@@ -8,8 +8,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.READ_PROFILE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <!--
-#####################################################################
+    <!--#####################################################################
     #   SDK Settings:                                                       #
     #   Set the minimum SDK version we want to support and the target SDK   #
     #   version.                                                            #
@@ -84,6 +83,18 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login">
+        </activity>
+
+        <!-- EditResumeActivity -->
+        <activity
+            android:name=".EditResumeActivity"
+            android:label="@string/title_activity_edit_resume">
+        </activity>
+
+        <!-- EditHeaderActivity -->
+        <activity
+            android:name=".EditResumeActivity$EditHeaderActivity"
+            android:label="@string/title_activity_edit_resume">
         </activity>
 
         <!-- Other -->
