@@ -4,46 +4,59 @@
     android:versionCode="1"
     android:versionName="0.1">
 
-    <!--#####################################################################
+    <!--
+    #####################################################################
     #   SDK Settings:                                                       #
     #   Set the minimum SDK version we want to support and the target SDK   #
     #   version.                                                            #
     #   We aren't actually using this yet.                                  #
-    #########################################################################-->
-    <!-- <uses-sdk
+    #########################################################################
+    -->
+    <!--
+ <uses-sdk
             android:minSdkVersion="16"
-            android:targetSdkVersion="19" />-->
-
-    <!--#####################################################################
+            android:targetSdkVersion="19" />
+    -->
+    <!--
+#####################################################################
     #   Configuration:                                                      #
     #   Specify the required input methods the app needs.                   #
     #   We aren't actually using this yet.                                  #
-    #########################################################################-->
-    <!--<uses-configuration
-            android:reqHardKeyboard="true"/>-->
-
-    <!--#####################################################################
+    #########################################################################
+    -->
+    <!--
+<uses-configuration
+            android:reqHardKeyboard="true"/>
+    -->
+    <!--
+#####################################################################
     #   Features:                                                           #
     #   Specify the required hardware on the device.                        #
     #   We aren't actually using this yet.                                  #
-    #########################################################################-->
-    <!--<uses-feature
-            android:name="android.hardware.camera" />-->
-
-
-    <!--#####################################################################
+    #########################################################################
+    -->
+    <!--
+<uses-feature
+            android:name="android.hardware.camera" />
+    -->
+    <!--
+#####################################################################
     #   App Permissions:                                                    #
     #   Specify what the app needs permission for to work properly.         #
     #   We aren't actually using this yet.                                  #
-    #########################################################################-->
-    <!-- <uses-permission
-            android:name="android.permission.INTERNET"/>-->
-
-    <!--#####################################################################
+    #########################################################################
+    -->
+    <!--
+ <uses-permission
+            android:name="android.permission.INTERNET"/>
+    -->
+    <!--
+#####################################################################
     #   The Application:                                                    #
     #   Include all relevant information about the application (including   #
     #   all activities.)                                                    #
-    #########################################################################-->
+    #########################################################################
+    -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -51,7 +64,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--Activity1-->
+        <!-- Activity1 -->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -62,9 +75,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--Activity2-->
-        <!--TODO-->
+        <!-- Activity2 -->
+        <!-- TODO -->
 
+        <activity android:name=".edit_resume"></activity>
     </application>
 
 </manifest>
