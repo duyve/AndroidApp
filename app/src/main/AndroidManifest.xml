@@ -85,6 +85,12 @@
             android:label="@string/title_activity_login">
         </activity>
 
+        <!-- EditResumeActivity -->
+        <activity
+            android:name=".EditResumeActivity"
+            android:label="@string/title_activity_edit_resume">
+        </activity>
+
         <!-- Other -->
     </application>
 

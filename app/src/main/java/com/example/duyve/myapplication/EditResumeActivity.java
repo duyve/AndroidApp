@@ -8,12 +8,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class EditResume extends Activity {
+public class EditResumeActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editresume);
+        setContentView(R.layout.activity_edit_resume);
     }
 
     public void onClick(View view){
