@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <!-- MainActivity -->
+    <item type="id" name="logInButton"/>
+    <item type="id" name="signUpButton"/>
+    <item type="id" name="nameTextView"/>
 
 <!-- LoginActivity -->
+    <item type="id" name="login_progress"/>
+    <item type="id" name="login_form"/>
+    <item type="id" name="email_login_form"/>
+    <item type="id" name="email_sign_in_button"/>
+    <item type="id" name="email"/>
+    <item type="id" name="password"/>
+    <item type="id" name="login"/>
 
 <!-- EditResumeActivity -->
 
-<!-- EditResumeActivity -->
+<!-- EditHeaderActivity -->
 
 
 </resources>

@@ -31,6 +31,11 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra("loginKeySend", false);
         startActivityForResult(intent, REQUEST_CODE);
     }
+    //TODO REMOVE THIS BEFORE PUSHING TO MASTER
+    public void onSwitchClick(View view){
+        Intent intent = new Intent(this,NetworkActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)

@@ -24,7 +24,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <Button
-        android:id="@+id/logInButton"
+        android:id="@id/logInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Log In"
@@ -38,21 +38,22 @@
         android:layout_above="@+id/signUpButton"/>
 
     <Button
-        android:id="@+id/signUpButton"
+        android:id="@id/signUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up"
+        android:onClick="onSwitchClick"
 
         android:background="@drawable/button_selector"
         android:textColor="@color/colorPrimaryText"
 
         android:layout_marginBottom="48dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/logInButton"
-        android:layout_alignStart="@+id/logInButton"/>
+        android:layout_alignLeft="@id/logInButton"
+        android:layout_alignStart="@id/logInButton"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@id/nameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
