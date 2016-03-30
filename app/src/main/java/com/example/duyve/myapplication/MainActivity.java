@@ -28,7 +28,12 @@ public class MainActivity extends AppCompatActivity
     public void onClickLogin(View view)
     {
         Intent intent = new Intent(this, LoginActivity.class);
-        intent.putExtra("loginKeySend", false);
+        startActivityForResult(intent, REQUEST_CODE);
+    }
+
+    public void onClickSignup(View view)
+    {
+        Intent intent = new Intent(this, SignupActivity.class);
         startActivityForResult(intent, REQUEST_CODE);
     }
 
@@ -37,10 +42,9 @@ public class MainActivity extends AppCompatActivity
     {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE)
         {
-            if (data.hasExtra("loginKeyReceive"))
+            if (data.hasExtra("id"))
             {
-                Boolean successful = data.getExtras().getBoolean("loginKeyReceive");
-                if (successful)
+                if (data.getExtras().getString("id") != null)
                 {
                     Intent intent = new Intent(this, EditResumeActivity.class);
                     startActivity(intent);
