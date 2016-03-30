@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
@@ -60,12 +61,40 @@ public class SignupActivity extends AppCompatActivity
         }
     }
 
+    public void loginAfterSignup(String email, String password)
+    {
+        firebaseRef.authWithPassword(email, password, new Firebase.AuthResultHandler() {
+            @Override
+            public void onAuthenticated(AuthData authData) {
+                Toast.makeText(SignupActivity.this, "Logged in Successfully!", Toast.LENGTH_SHORT).show();
+                id = authData.getUid();
+                //Return to Parent call
+                finish();
+            }
+
+            @Override
+            public void onAuthenticationError(FirebaseError firebaseError) {
+                switch (firebaseError.getCode()){
+                    case FirebaseError.INVALID_PASSWORD:
+                        Toast.makeText(SignupActivity.this, "Password Incorrect", Toast.LENGTH_SHORT).show();
+                        break;
+                    case FirebaseError.INVALID_EMAIL:
+                        Toast.makeText(SignupActivity.this, "Account with given email does not exist", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        Toast.makeText(SignupActivity.this, "There was an error signing into your account", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
+    }
+
     public void signupAccount(View view)
     {
         emailView.setError(null);
         passwordView.setError(null);
-        String email = emailView.getText().toString();
-        String password = passwordView.getText().toString();
+        final String email = emailView.getText().toString();
+        final String password = passwordView.getText().toString();
 
         if(!isValidEmail(email))
         {
@@ -84,9 +113,8 @@ public class SignupActivity extends AppCompatActivity
                 @Override
                 public void onSuccess(Map<String, Object> result) {
                     Toast.makeText(SignupActivity.this, "Created Successfully!", Toast.LENGTH_SHORT).show();
-                    id = (String) result.get("uid");
-                    //Return to Parent call
-                    finish();
+                    //Log in after creating account
+                    loginAfterSignup(email, password);
                 }
 
                 @Override
