@@ -34,7 +34,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Account"
+        android:text="Log in"
         android:id="@+id/LoginButtonSubmit"
         android:layout_below="@+id/LoginTextPassword"
         android:layout_centerHorizontal="true"
