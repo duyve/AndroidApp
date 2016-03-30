@@ -51,7 +51,8 @@
     #   We aren't actually using this yet.                                  #
     #########################################################################
     -->
- <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <!--
 #####################################################################
     #   The Application:                                                    #
@@ -81,20 +82,21 @@
         <!-- LoginActivity -->
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
 
         <!-- EditResumeActivity -->
         <activity
             android:name=".EditResumeActivity"
-            android:label="@string/title_activity_edit_resume"></activity>
+            android:label="@string/title_activity_edit_resume" />
 
         <!-- EditHeaderActivity -->
         <activity
             android:name=".EditResumeActivity$EditHeaderActivity"
-            android:label="@string/title_activity_edit_resume"></activity>
+            android:label="@string/title_activity_edit_resume" />
 
         <!-- Other -->
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".SignupActivity"></activity>
     </application>
 
 </manifest>
