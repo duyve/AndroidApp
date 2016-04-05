@@ -48,7 +48,8 @@
         android:text="Forgot Password?"
         android:id="@+id/LoginTextForgotPassword"
         android:layout_below="@+id/LoginButtonSubmit"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="switchToForgot" />
 
     <TextView
         android:layout_width="wrap_content"

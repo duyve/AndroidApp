@@ -37,4 +37,5 @@
     <string name="editSkills">Edit Skills</string>
     <string name="setNewHeader">set new header content</string>
     <string name="save">Save and Update Resume</string>
+    <string name="getPassword">Get new password</string>
 </resources>
