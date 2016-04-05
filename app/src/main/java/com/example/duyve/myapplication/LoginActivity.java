@@ -40,7 +40,12 @@ public class LoginActivity extends AppCompatActivity
         firebaseRef = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
     }
 
-    public void switchToSignup(View view){
+    public void switchToForgot(View view){
+        Intent intent = new Intent(this, ForgotPasswordActivity.class);
+        startActivityForResult(intent, REQUEST_CODE);
+    }
+
+    public void switchToSignup(View view) {
         Intent intent = new Intent(this, SignupActivity.class);
         startActivityForResult(intent, REQUEST_CODE);
     }

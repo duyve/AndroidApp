@@ -100,9 +100,8 @@
             android:label="Sign Up" />
         <!-- Other -->
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".MainMenuActivity">
-
-        </activity>
+        <activity android:name=".MainMenuActivity"></activity>
+        <activity android:name=".ForgotPasswordActivity"></activity>
     </application>
 
 </manifest>
