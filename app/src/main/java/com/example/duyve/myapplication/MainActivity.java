@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity
             {
                 if (data.getExtras().getString("id") != null)
                 {
-                    Intent intent = new Intent(this, EditResumeActivity.class);
+                    Intent intent = new Intent(this, MainMenuActivity.class);
                     startActivity(intent);
                 }
             }
