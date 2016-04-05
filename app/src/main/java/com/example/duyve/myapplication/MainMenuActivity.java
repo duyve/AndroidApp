@@ -13,8 +13,18 @@ public class MainMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
     }
 
-    public void onClick(View view){
+    public void onEditClick(View view){
         Intent i = new Intent(this, EditResumeActivity.class);
+        startActivity(i);
+    }
+
+    public void onViewClick(View view){
+        Intent i =new Intent(this, SettingsActivity.class);
+        startActivity(i);
+    }
+
+    public void onSettingsClick(View view){
+        Intent i = new Intent(this, SettingsActivity.class);
         startActivity(i);
     }
 }
