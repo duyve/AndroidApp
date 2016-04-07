@@ -18,12 +18,9 @@ import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity
 {
-    private static final int REQUEST_CODE = 10;
 
     private EditText emailView,
             passwordView;
-    private TextView loginView;
-    private String id;
     private Firebase firebaseRef;
 
     @Override
@@ -31,32 +28,25 @@ public class SignupActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        Firebase.setAndroidContext(this);
         emailView = (EditText) findViewById(R.id.SignupTextEmail);
         passwordView = (EditText) findViewById(R.id.SignupTextPassword);
-        loginView = (TextView) findViewById(R.id.LoginTextSignup);
 
-        id = null;
         firebaseRef = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
     }
 
     public void switchToLogin(View view){
         Intent intent = new Intent(this, LoginActivity.class);
-        startActivityForResult(intent, REQUEST_CODE);
+        startActivityForResult(intent, ActivityCode.LOG_IN);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE)
+        if(requestCode == ActivityCode.LOG_IN)
         {
-            if (data.hasExtra("id"))
+            if(resultCode == RESULT_OK)
             {
-                if (data.getExtras().getString("id") != null)
-                {
-                    id = data.getExtras().getString("id");
-                    finish();
-                }
+                finish();
             }
         }
     }
@@ -67,7 +57,6 @@ public class SignupActivity extends AppCompatActivity
             @Override
             public void onAuthenticated(AuthData authData) {
                 Toast.makeText(SignupActivity.this, "Logged in Successfully!", Toast.LENGTH_SHORT).show();
-                id = authData.getUid();
                 //Return to Parent call
                 finish();
             }
@@ -135,12 +124,10 @@ public class SignupActivity extends AppCompatActivity
     @Override
     public void finish(){
         Intent intent = new Intent();
-
-        intent.putExtra("id", id);
         setResult(RESULT_OK, intent);
-
         super.finish();
     }
+
     public Boolean isValidEmail(String email)
     {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();

@@ -18,12 +18,9 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity
 {
-    private static final int REQUEST_CODE = 10;
-
     private EditText emailView,
             passwordView;
-    private TextView signupView;
-    private String id;
+
     private Firebase firebaseRef;
 
     @Override
@@ -31,34 +28,32 @@ public class LoginActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Firebase.setAndroidContext(this);
         emailView = (EditText) findViewById(R.id.LoginTextEmail);
         passwordView = (EditText) findViewById(R.id.LoginTextPassword);
-        signupView = (TextView) findViewById(R.id.LoginTextSignup);
 
-        id = null;
         firebaseRef = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
     }
 
     public void switchToSignup(View view){
         Intent intent = new Intent(this, SignupActivity.class);
-        startActivityForResult(intent, REQUEST_CODE);
+        startActivityForResult(intent, ActivityCode.SIGN_UP);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE)
+        if (requestCode == ActivityCode.SIGN_UP)
         {
-            if (data.hasExtra("id"))
-            {
-                if (data.getExtras().getString("id") != null)
-                {
-                    id = data.getExtras().getString("id");
-                    finish();
-                }
-            }
+            if(resultCode == RESULT_OK)
+            finish();
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        setResult(RESULT_CANCELED, getIntent());
+        super.onBackPressed();
     }
 
     public void loginAccount(View view)
@@ -85,7 +80,6 @@ public class LoginActivity extends AppCompatActivity
                 @Override
                 public void onAuthenticated(AuthData authData) {
                     Toast.makeText(LoginActivity.this, "Logged in Successfully!", Toast.LENGTH_SHORT).show();
-                    id = authData.getUid();
                     //Return to Parent call
                     finish();
                 }
@@ -111,12 +105,10 @@ public class LoginActivity extends AppCompatActivity
     @Override
     public void finish(){
         Intent intent = new Intent();
-
-        intent.putExtra("id", id);
         setResult(RESULT_OK, intent);
-
         super.finish();
     }
+
     public Boolean isValidEmail(String email)
     {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
