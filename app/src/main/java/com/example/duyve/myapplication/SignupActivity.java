@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.client.AuthData;
@@ -21,17 +20,15 @@ public class SignupActivity extends AppCompatActivity
 
     private EditText emailView,
             passwordView;
-    private Firebase firebaseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.main_signup);
         emailView = (EditText) findViewById(R.id.SignupTextEmail);
         passwordView = (EditText) findViewById(R.id.SignupTextPassword);
 
-        firebaseRef = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
     }
 
     public void switchToLogin(View view){
@@ -53,7 +50,8 @@ public class SignupActivity extends AppCompatActivity
 
     public void loginAfterSignup(String email, String password)
     {
-        firebaseRef.authWithPassword(email, password, new Firebase.AuthResultHandler() {
+        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
+        ref.authWithPassword(email, password, new Firebase.AuthResultHandler() {
             @Override
             public void onAuthenticated(AuthData authData) {
                 Toast.makeText(SignupActivity.this, "Logged in Successfully!", Toast.LENGTH_SHORT).show();
@@ -98,7 +96,8 @@ public class SignupActivity extends AppCompatActivity
          */
         else
         {
-            firebaseRef.createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>() {
+            Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
+            ref.createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>() {
                 @Override
                 public void onSuccess(Map<String, Object> result) {
                     Toast.makeText(SignupActivity.this, "Created Successfully!", Toast.LENGTH_SHORT).show();

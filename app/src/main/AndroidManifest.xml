@@ -71,9 +71,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:noHistory="true"
-            android:excludeFromRecents="true">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -102,9 +100,15 @@
             android:label="Sign Up" />
         <!-- Other -->
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".MainMenuActivity">
 
-        </activity>
+        <activity android:name=".MainMenuActivity" />
+
+        <activity android:name=".ChangeEmailActivity" />
+
+        <activity android:name=".ChangePasswordActivity" />
+
+        <activity android:name=".AboutActivity"/>
+
     </application>
 
 </manifest>

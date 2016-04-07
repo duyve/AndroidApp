@@ -7,31 +7,24 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
-import java.util.Map;
-
 public class LoginActivity extends AppCompatActivity
 {
     private EditText emailView,
             passwordView;
 
-    private Firebase firebaseRef;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.main_login);
         emailView = (EditText) findViewById(R.id.LoginTextEmail);
         passwordView = (EditText) findViewById(R.id.LoginTextPassword);
-
-        firebaseRef = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
     }
 
     public void switchToSignup(View view){
@@ -45,16 +38,12 @@ public class LoginActivity extends AppCompatActivity
         if (requestCode == ActivityCode.SIGN_UP)
         {
             if(resultCode == RESULT_OK)
-            finish();
+            {
+                finish();
+            }
         }
     }
 
-    @Override
-    public void onBackPressed()
-    {
-        setResult(RESULT_CANCELED, getIntent());
-        super.onBackPressed();
-    }
 
     public void loginAccount(View view)
     {
@@ -76,7 +65,8 @@ public class LoginActivity extends AppCompatActivity
          */
         else
         {
-            firebaseRef.authWithPassword(email, password, new Firebase.AuthResultHandler() {
+            Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
+            ref.authWithPassword(email, password, new Firebase.AuthResultHandler() {
                 @Override
                 public void onAuthenticated(AuthData authData) {
                     Toast.makeText(LoginActivity.this, "Logged in Successfully!", Toast.LENGTH_SHORT).show();

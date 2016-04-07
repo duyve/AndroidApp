@@ -13,40 +13,32 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
-        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
-
-        //Check for authentication logic block
-        ref.addAuthStateListener(new Firebase.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(AuthData authData) {
-                if(authData == null){
-                    Intent loginIntnet = new Intent(SettingsActivity.this, LoginActivity.class);
-                    startActivityForResult(loginIntnet, ActivityCode.LOG_IN);
-                }
-            }
-        });
+        setContentView(R.layout.settings);
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
+
+    public void onClickChangeEmail(View view)
     {
-        if (requestCode == ActivityCode.LOG_IN)
-        {
-            if (resultCode == RESULT_CANCELED)
-            {
-                Intent mainScreen = new Intent(this, MainActivity.class);
-                mainScreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                mainScreen.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                startActivity(mainScreen);
-            }
-
-        }
-
+        Intent i = new Intent(this,ChangeEmailActivity.class);
+        startActivity(i);
     }
 
     public void onClickChangePassword(View view)
     {
+        Intent i = new Intent(this,ChangePasswordActivity.class);
+        startActivity(i);
+    }
 
+    public void onClickAbout(View view)
+    {
+        Intent i = new Intent(this,ChangePasswordActivity.class);
+        startActivity(i);
+    }
+
+    public void onClickLogout(View view)
+    {
+        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
+        ref.unauth();
+        finish();
     }
 }

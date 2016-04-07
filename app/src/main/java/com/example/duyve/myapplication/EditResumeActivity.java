@@ -13,7 +13,7 @@ public class EditResumeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_resume);
+        setContentView(R.layout.edit_resume);
     }
 
     public void onClick(View view){
@@ -105,7 +105,7 @@ public class EditResumeActivity extends Activity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_edit_section);
+            setContentView(R.layout.edit_resume_section);
             Bundle extras = getIntent().getExtras();
             String value = extras.getString("yourkey");
             EditText text = (EditText) findViewById(R.id.sectionEditText);

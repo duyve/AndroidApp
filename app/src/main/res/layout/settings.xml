@@ -17,7 +17,8 @@
         android:id="@+id/SettingsButtonChangeEmail"
         android:layout_marginTop="40dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickChangeEmail"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -26,7 +27,8 @@
         android:id="@+id/SettingsButtonChangePassword"
         android:layout_below="@id/SettingsButtonChangeEmail"
         android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickChangePassword"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -35,7 +37,8 @@
         android:id="@+id/SettingsButtonAbout"
         android:layout_marginTop="40dp"
         android:layout_below="@id/SettingsButtonChangePassword"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickAbout"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -44,5 +47,6 @@
         android:id="@+id/SettingsButtonLogout"
         android:layout_below="@id/SettingsButtonAbout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp" />
+        android:layout_marginTop="46dp"
+        android:onClick="onClickLogout"/>
 </RelativeLayout>
