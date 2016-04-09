@@ -13,35 +13,35 @@ public class EditResumeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_resume);
+        setContentView(R.layout.edit_resume);
     }
 
     public void onClick(View view){
         TextView text;
         int request;
         switch(view.getId()){
-            case R.id.button:
-                text = (TextView) findViewById(R.id.textView2);
-                request = 1;
+            case R.id.EditResumeButtonEditHeader:
+                text = (TextView) findViewById(R.id.EditResumeTextEducationInfo);
+                request = ActivityCode.EDIT_HEADER;
                 break;
-            case R.id.button2:
-                text = (TextView) findViewById(R.id.textView4);
+            case R.id.EditResumeButtonEditEducation:
+                text = (TextView) findViewById(R.id.EditResumeButtonEditEducation);
                 request = 2;
                 break;
-            case R.id.button3:
-                text = (TextView) findViewById(R.id.textView6);
+            case R.id.EditResumeButtonExperience:
+                text = (TextView) findViewById(R.id.EditResumeTextExperienceInfo);
                 request = 3;
                 break;
-            case R.id.button4:
-                text = (TextView) findViewById(R.id.textView8);
+            case R.id.EditResumeButtonActivities:
+                text = (TextView) findViewById(R.id.EditResumeTextActivitiesInfo);
                 request = 4;
                 break;
-            case R.id.button5:
-                text = (TextView) findViewById(R.id.textView10);
+            case R.id.EditResumeButtonSkills:
+                text = (TextView) findViewById(R.id.EditReumeTextSkillsInfo);
                 request = 5;
                 break;
-            case R.id.button6:
-                text = (TextView) findViewById(R.id.textView12);
+            case R.id.EditResumeButtonReferences:
+                text = (TextView) findViewById(R.id.EditResumeTextReferencesInfo);
                 request = 6;
                 break;
             default:
@@ -54,27 +54,39 @@ public class EditResumeActivity extends Activity {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int returnCode, Intent data){
-        if(returnCode == RESULT_OK){
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        if (requestCode == ActivityCode.LOG_IN)
+        {
+            if (resultCode == RESULT_CANCELED)
+            {
+                Intent mainScreen = new Intent(this, MainActivity.class);
+                mainScreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                mainScreen.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(mainScreen);
+            }
+
+        }
+
+        if(resultCode == RESULT_OK){
             TextView editedText;
             switch(requestCode) {
                 case 1:
-                    editedText = (TextView) findViewById(R.id.textView2);
+                    editedText = (TextView) findViewById(R.id.EditResumeTextHeaderInfo);
                     break;
                 case 2:
-                    editedText = (TextView) findViewById(R.id.textView4);
+                    editedText = (TextView) findViewById(R.id.EditResumeTextExperienceInfo);
                     break;
                 case 3:
-                    editedText = (TextView) findViewById(R.id.textView6);
+                    editedText = (TextView) findViewById(R.id.EditResumeTextExperienceInfo);
                     break;
                 case 4:
-                    editedText = (TextView) findViewById(R.id.textView8);
+                    editedText = (TextView) findViewById(R.id.EditResumeTextActivitiesInfo);
                     break;
                 case 5:
-                    editedText = (TextView) findViewById(R.id.textView10);
+                    editedText = (TextView) findViewById(R.id.EditReumeTextSkillsInfo);
                     break;
                 case 6:
-                    editedText = (TextView) findViewById(R.id.textView12);
+                    editedText = (TextView) findViewById(R.id.EditResumeTextReferencesInfo);
                     break;
                 default:
                     throw new IllegalStateException();
@@ -93,7 +105,7 @@ public class EditResumeActivity extends Activity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_edit_section);
+            setContentView(R.layout.edit_resume_section);
             Bundle extras = getIntent().getExtras();
             String value = extras.getString("yourkey");
             EditText text = (EditText) findViewById(R.id.sectionEditText);

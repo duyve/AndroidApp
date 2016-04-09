@@ -1,65 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.duyve.myapplication"
-    android:versionCode="1"
-    android:versionName="0.1">
+    package="com.example.duyve.myapplication">
 
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-    <!--
-    #####################################################################
+
+    <!--#####################################################################
     #   SDK Settings:                                                       #
     #   Set the minimum SDK version we want to support and the target SDK   #
     #   version.                                                            #
     #   We aren't actually using this yet.                                  #
-    #########################################################################
-    -->
+    ######################################################################-->
     <!--
  <uses-sdk
             android:minSdkVersion="16"
             android:targetSdkVersion="19" />
     -->
-    <!--
-#####################################################################
+    <!--#####################################################################
     #   Configuration:                                                      #
     #   Specify the required input methods the app needs.                   #
     #   We aren't actually using this yet.                                  #
-    #########################################################################
-    -->
+    ######################################################################-->
     <!--
 <uses-configuration
             android:reqHardKeyboard="true"/>
     -->
-    <!--
-#####################################################################
+    <!--#####################################################################
     #   Features:                                                           #
     #   Specify the required hardware on the device.                        #
     #   We aren't actually using this yet.                                  #
-    #########################################################################
-    -->
+    ######################################################################-->
     <!--
 <uses-feature
             android:name="android.hardware.camera" />
     -->
-    <!--
-#####################################################################
+    <!--#####################################################################
     #   App Permissions:                                                    #
     #   Specify what the app needs permission for to work properly.         #
-    #   We aren't actually using this yet.                                  #
-    #########################################################################
-    -->
+    #                                                                       #
+    ######################################################################-->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!--
-#####################################################################
+    <!--#####################################################################
     #   The Application:                                                    #
     #   Include all relevant information about the application (including   #
     #   all activities.)                                                    #
-    #########################################################################
-    -->
+    ######################################################################-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -100,8 +85,15 @@
             android:label="Sign Up" />
         <!-- Other -->
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".MainMenuActivity"></activity>
-        <activity android:name=".ForgotPasswordActivity"></activity>
+
+        <activity android:name=".MainMenuActivity" />
+
+        <activity android:name=".ChangeEmailActivity" />
+
+        <activity android:name=".ChangePasswordActivity" />
+
+        <activity android:name=".AboutActivity"/>
+
     </application>
 
 </manifest>
