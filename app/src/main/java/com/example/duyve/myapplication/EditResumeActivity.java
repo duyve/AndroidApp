@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 public class EditResumeActivity extends Activity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
