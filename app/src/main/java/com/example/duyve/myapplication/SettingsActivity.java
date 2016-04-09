@@ -31,7 +31,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void onClickAbout(View view)
     {
-        Intent i = new Intent(this,ChangePasswordActivity.class);
+        Intent i = new Intent(this, AboutActivity.class);
         startActivity(i);
     }
 
