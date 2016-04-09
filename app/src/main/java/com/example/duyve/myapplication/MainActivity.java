@@ -13,6 +13,7 @@ import com.firebase.client.Firebase;
 
 public class MainActivity extends AppCompatActivity
 {
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,6 +29,13 @@ public class MainActivity extends AppCompatActivity
             startActivity(mainMenu);
             finish();
         }
+        user = createUser(ref);
+
+    }
+
+    public User createUser(Firebase ref)
+    {
+        return null;
     }
 
     public void onClickLogin(View view)

@@ -1,11 +1,11 @@
 package com.example.duyve.myapplication;
 
-import java.sql.Ref;
-import java.util.Calendar;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
-public class User {
+public class User implements Serializable
+{
 
     /**
      * The class work can be used to store both work and school data.
@@ -142,18 +142,18 @@ public class User {
 
     private String address;
 
-    private String[] skills;
+    private ArrayList<String> skills;
 
-    private String[] actvities;
+    private ArrayList<String> actvities;
 
-    private Work[] education;
+    private ArrayList<Work> education;
 
-    private Work[] experience;
+    private ArrayList<Work> experience;
 
-    private Reference[] references;
+    private ArrayList<Reference> references;
 
 
-    public User(String email, String firstName, String lastName, String phone, String careerTitle, String address, String[] skills, String[] actvities, Work[] education, Work[] experience, Reference[] references) {
+    public User(String email, String firstName, String lastName, String phone, String careerTitle, String address, ArrayList<String> skills, ArrayList<String> actvities, ArrayList<Work> education, ArrayList<Work> experience, ArrayList<Reference> references) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -165,6 +165,20 @@ public class User {
         this.education = education;
         this.experience = experience;
         this.references = references;
+    }
+
+    public User() {
+        this.email = "example@mail.com";
+        this.firstName = "Jane";
+        this.lastName = "Doe";
+        this.phone = "000-000-0000";
+        this.careerTitle = "Business";
+        this.address = "1234 Exampe Street";
+        this.skills = new ArrayList<>();
+        this.actvities = new ArrayList<>();
+        this.education = new ArrayList<>();
+        this.experience = new ArrayList<>();
+        this.references = new ArrayList<>();
     }
 
     public String getEmail() {
@@ -215,43 +229,43 @@ public class User {
         this.address = address;
     }
 
-    public String[] getSkills() {
+    public ArrayList<String> getSkills() {
         return skills;
     }
 
-    public void setSkills(String[] skills) {
+    public void setSkills(ArrayList<String> skills) {
         this.skills = skills;
     }
 
-    public String[] getActvities() {
+    public ArrayList<String> getActvities() {
         return actvities;
     }
 
-    public void setActvities(String[] actvities) {
+    public void setActvities(ArrayList<String> actvities) {
         this.actvities = actvities;
     }
 
-    public Work[] getEducation() {
+    public ArrayList<Work> getEducation() {
         return education;
     }
 
-    public void setEducation(Work[] education) {
+    public void setEducation(ArrayList<Work> education) {
         this.education = education;
     }
 
-    public Work[] getExperience() {
+    public ArrayList<Work> getExperience() {
         return experience;
     }
 
-    public void setExperience(Work[] experience) {
+    public void setExperience(ArrayList<Work> experience) {
         this.experience = experience;
     }
 
-    public Reference[] getReferences() {
+    public ArrayList<Reference> getReferences() {
         return references;
     }
 
-    public void setReferences(Reference[] references) {
+    public void setReferences(ArrayList<Reference> references) {
         this.references = references;
     }
 
