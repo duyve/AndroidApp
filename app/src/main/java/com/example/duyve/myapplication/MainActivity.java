@@ -67,8 +67,6 @@ public class MainActivity extends AppCompatActivity
                             Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
                             ref.removeAuthStateListener(this);
                             Intent mainScreen = new Intent(getApplicationContext(), MainActivity.class);
-                            mainScreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                            mainScreen.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                             startActivity(mainScreen);
                         }
                     }

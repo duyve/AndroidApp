@@ -41,4 +41,12 @@ public class SettingsActivity extends AppCompatActivity {
         ref.unauth();
         finish();
     }
+
+    @Override
+    public void finish()
+    {
+        Intent i  = new Intent();
+        setResult(RESULT_OK , i);
+        super.finish();
+    }
 }

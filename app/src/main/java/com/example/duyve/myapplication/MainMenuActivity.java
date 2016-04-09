@@ -30,6 +30,16 @@ public class MainMenuActivity extends AppCompatActivity {
 
     public void onSettingsClick(View view){
         Intent i = new Intent(this, SettingsActivity.class);
-        startActivity(i);
+        startActivityForResult(i, ActivityCode.SETTINGS);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (requestCode == ActivityCode.SETTINGS){
+            if(resultCode == RESULT_OK){
+                finish();
+            }
+        }
     }
 }
