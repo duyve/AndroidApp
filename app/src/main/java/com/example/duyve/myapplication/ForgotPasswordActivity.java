@@ -13,8 +13,6 @@ import com.firebase.client.FirebaseError;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
-    private static final int REQUEST_CODE = 10;
-
     private EditText emailView;
     private Firebase firebaseRef;
     private String id;
@@ -31,7 +29,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE)
+        if (resultCode == RESULT_OK && requestCode == ActivityCode.FORGOT_PASSWORD)
         {
             if (data.hasExtra("id"))
             {

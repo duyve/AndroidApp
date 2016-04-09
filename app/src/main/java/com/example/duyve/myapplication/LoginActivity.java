@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity
 
     public void switchToForgot(View view){
         Intent intent = new Intent(this, ForgotPasswordActivity.class);
-        startActivityForResult(intent, REQUEST_CODE);
+        startActivityForResult(intent, ActivityCode.FORGOT_PASSWORD);
     }
 
     public void switchToSignup(View view) {
