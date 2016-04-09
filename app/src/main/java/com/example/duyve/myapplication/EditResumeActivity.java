@@ -106,7 +106,7 @@ public class EditResumeActivity extends Activity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.edit_resume_section);
+            setContentView(R.layout.edit_resume_work);
             Bundle extras = getIntent().getExtras();
             String value = extras.getString("yourkey");
             EditText text = (EditText) findViewById(R.id.sectionEditText);

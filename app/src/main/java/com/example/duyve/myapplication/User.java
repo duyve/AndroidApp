@@ -10,7 +10,7 @@ public class User implements Serializable
     /**
      * The class work can be used to store both work and school data.
      */
-    class Work{
+    public class Work{
         private String place;
 
         private Date startDate;
