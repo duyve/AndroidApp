@@ -94,6 +94,9 @@
 
         <activity android:name=".AboutActivity"/>
 
+        <activity android:name=".ForgotPasswordActivity"
+            android:label="Write Your Password Down"/>
+
     </application>
 
 </manifest>

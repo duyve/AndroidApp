@@ -16,5 +16,4 @@ public class ActivityCode {
     public static final int EDIT_EXPERENCES = 109;
     public static final int EDIT_HEADER = 110;
     public static final int EDIT_ACTIVITIES = 111;
-    public static final int FORGOT_PASSWORD = 112;
 }
