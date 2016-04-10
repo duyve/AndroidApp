@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.duyve.myapplication.Classes.ActivityCode;
+import com.example.duyve.myapplication.Classes.Education;
 import com.example.duyve.myapplication.Classes.Experience;
 import com.example.duyve.myapplication.R;
 import com.example.duyve.myapplication.Classes.Reference;
@@ -127,8 +128,9 @@ public class EditResumeActivity extends Activity {
                     String city = (String) experience.child("city").getValue();
                     String state = (String) experience.child("state").getValue();
                     String info = (String) experience.child("info").getValue();
+                    String position = (String) experience.child("position").getValue();
                     //ADD INFORMATION TO USER
-                    user.addExperience(new Experience(name, startDate, endDate, city, state, info));
+                    user.addExperience(new Experience(name, startDate, endDate, city, state, info, position));
                 }
 
                 //ADD EDUCATION ELEMENTS
@@ -142,18 +144,20 @@ public class EditResumeActivity extends Activity {
                     String state = (String) education.child("state").getValue();
                     String info = (String) education.child("info").getValue();
                     //ADD INFORMATION TO USER
-                    user.addEducation(new Experience(name, startDate, endDate, city, state, info));
+                    user.addEducation(new Education(name, startDate, endDate, city, state, info));
                 }
 
                 //GET REFERENCE ELEMENTS
                 Iterable<DataSnapshot> references = dataSnapshot.child("references").getChildren();
                 for(DataSnapshot reference: references){
                     String name = (String) reference.child("name").getValue();
-                    String title = (String) reference.child("title").getValue();
-                    String contact = (String) reference.child("contact").getValue();
+                    String title = (String) reference.child("relation").getValue();
+                    String email = (String) reference.child("email").getValue();
+                    String phone = (String) reference.child("phone").getValue();
+
 
                     //ADD INFORMATION TO USER
-                    user.addReference(new Reference(name, title, contact));
+                    user.addReference(new Reference(name, title, email, phone));
                 }
             }
 

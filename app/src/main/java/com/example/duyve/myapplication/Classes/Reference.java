@@ -1,21 +1,21 @@
 package com.example.duyve.myapplication.Classes;
 
-/**
- * Created by duyve on 4/9/2016.
- */
 public class Reference {
     private String name;
 
     private String title;
 
-    private String contact;
+    private String email;
+
+    private String phone;
 
     public Reference() {}
 
-    public Reference(String name, String title, String contact) {
+    public Reference(String name, String title, String email, String phone) {
         this.name = name;
         this.title = title;
-        this.contact = contact;
+        this.email = email;
+        this.phone = phone;
     }
 
     public String getName() {
@@ -34,11 +34,19 @@ public class Reference {
         this.title = title;
     }
 
-    public String getContact() {
-        return contact;
+    public String getEmail() {
+        return email;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

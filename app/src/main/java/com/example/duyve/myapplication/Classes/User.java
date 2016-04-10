@@ -28,7 +28,7 @@ public class User
 
     private ArrayList<String> actvities;
 
-    private ArrayList<Experience> education;
+    private ArrayList<Education> education;
 
     private ArrayList<Experience> experience;
 
@@ -116,11 +116,11 @@ public class User
         this.actvities = actvities;
     }
 
-    public ArrayList<Experience> getEducation() {
+    public ArrayList<Education> getEducation() {
         return education;
     }
 
-    public void setEducation(ArrayList<Experience> education) {
+    public void setEducation(ArrayList<Education> education) {
         this.education = education;
     }
 
@@ -178,7 +178,7 @@ public class User
         this.experience.add(experience);
     }
 
-    public void addEducation(Experience education){
+    public void addEducation(Education education){
         this.education.add(education);
     }
 

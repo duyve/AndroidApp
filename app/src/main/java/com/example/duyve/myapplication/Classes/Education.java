@@ -1,9 +1,7 @@
 package com.example.duyve.myapplication.Classes;
 
-public class Experience {
+public class Education {
     private String name;
-
-    private  String position;
 
     private String startDate;
 
@@ -15,16 +13,15 @@ public class Experience {
 
     private String info;
 
-    public Experience() {}
+    public Education() {}
 
-    public Experience(String name, String startDate, String endDate, String city, String state, String info, String position) {
+    public Education(String name, String startDate, String endDate, String city, String state, String info) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
         this.city = city;
         this.state = state;
         this.info = info;
-        this.position = position;
     }
 
     public String getName() {
@@ -73,13 +70,5 @@ public class Experience {
 
     public void setInfo(String info) {
         this.info = info;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
     }
 }

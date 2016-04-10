@@ -10,11 +10,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.duyve.myapplication.Classes.ActivityCode;
+import com.example.duyve.myapplication.Classes.Experience;
+import com.example.duyve.myapplication.Classes.Reference;
 import com.example.duyve.myapplication.R;
 import com.firebase.client.AuthData;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity
@@ -50,13 +54,82 @@ public class SignupActivity extends AppCompatActivity
         }
     }
 
+
     public void loginAfterSignup(String email, String password)
     {
-        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
+        final Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
         ref.authWithPassword(email, password, new Firebase.AuthResultHandler() {
             @Override
             public void onAuthenticated(AuthData authData) {
                 Toast.makeText(SignupActivity.this, "Logged in Successfully!", Toast.LENGTH_SHORT).show();
+                //Create user data structure
+                String id = authData.getUid();
+
+                //SET HEADER ELEMENTS
+                Map<String,String> map = new HashMap<>();
+                map.put("firstName", "Herbert");
+                map.put("lastName", "Liska");
+                map.put("email", "HLiska@gmail.com");
+                map.put("careerTitle", "Botanist");
+                map.put("address", "1234 Example Street");
+                map.put("city", "Place");
+                map.put("state", "IA");
+                map.put("phone", "999887777");
+                map.put("zip", "52002");
+
+                ref.child("users").child(id).child("header").setValue(map);
+
+                //SET ACTIVITY ELEMENTS
+                map.clear();
+                for(int i = 1; i < 4; i++){
+                    map.put(Integer.toString(i),"Example" + i);
+                }
+                ref.child("users").child(id).child("activities").setValue(map);
+
+                //SET SKILL ELEMENTS
+                map.clear();
+                for(int i = 1; i < 4; i++){
+                    map.put(Integer.toString(i),"Example" + i);
+                }
+                ref.child("users").child(id).child("skills").setValue(map);
+
+                //SET WORK ELEMENTS
+                for(int i = 1; i< 4; i++ ){
+                    map.clear();
+                    map.put("name", "Company " + i);
+                    map.put("position", "Worker");
+                    map.put("startDate", "1/1/2016");
+                    map.put("endDate", "1/1/2016");
+                    map.put("city", "City " + i);
+                    map.put("state", "AL");
+                    map.put("info", "Example info" + i);
+                    //ADD INFORMATION TO USER
+                    ref.child("users").child(id).child("experiences").child(Integer.toString(i)).setValue(map);
+                }
+
+                //ADD EDUCATION ELEMENTS
+                for(int i = 1; i< 4; i++ ){
+                    map.clear();
+                    map.put("name", "School " + i);
+                    map.put("startDate", "1/1/2016");
+                    map.put("endDate", "1/1/2016");
+                    map.put("city", "City " + i);
+                    map.put("state", "AL");
+                    map.put("info", "Example info" + i);
+                    //ADD INFORMATION TO USER
+                    ref.child("users").child(id).child("education").child(Integer.toString(i)).setValue(map);
+                }
+
+                //GET REFERENCE ELEMENTS
+                for(int i = 1; i< 4; i++ ){
+                    map.clear();
+                    map.put("name", "Reference " + i);
+                    map.put("relation", "Old Boss" + i);
+                    map.put("email", "example@gmail.com");
+                    map.put("phone", "City " + i);
+                    //ADD INFORMATION TO USER
+                    ref.child("users").child(id).child("references").child(Integer.toString(i)).setValue(map);
+                }
                 //Return to Parent call
                 finish();
             }
