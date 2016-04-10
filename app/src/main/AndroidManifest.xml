@@ -66,35 +66,35 @@
 
         <!-- LoginActivity -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivities.LoginActivity"
             android:label="@string/title_activity_login" />
 
         <!-- EditResumeActivity -->
         <activity
-            android:name=".EditResumeActivity"
+            android:name=".Resume.EditResumeActivity"
             android:label="@string/title_activity_edit_resume" />
 
         <!-- EditHeaderActivity -->
         <activity
-            android:name=".EditResumeActivity$EditSectionActivity"
+            android:name=".Resume.EditResumeActivity$EditSectionActivity"
             android:label="@string/title_activity_edit_resume" />
 
         <!-- SignupActivity -->
         <activity
-            android:name=".SignupActivity"
+            android:name=".MainActivities.SignupActivity"
             android:label="Sign Up" />
         <!-- Other -->
-        <activity android:name=".SettingsActivity" />
+        <activity android:name=".Settings.SettingsActivity" />
 
-        <activity android:name=".MainMenuActivity" />
+        <activity android:name=".MainActivities.MainMenuActivity" />
 
-        <activity android:name=".ChangeEmailActivity" />
+        <activity android:name=".Settings.ChangeEmailActivity" />
 
-        <activity android:name=".ChangePasswordActivity" />
+        <activity android:name=".Settings.ChangePasswordActivity" />
 
-        <activity android:name=".AboutActivity"/>
+        <activity android:name=".Settings.AboutActivity"/>
 
-        <activity android:name=".ForgotPasswordActivity"
+        <activity android:name=".MainActivities.ForgotPasswordActivity"
             android:label="Write Your Password Down"/>
 
     </application>

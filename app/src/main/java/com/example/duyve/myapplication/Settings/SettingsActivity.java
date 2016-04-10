@@ -1,11 +1,11 @@
-package com.example.duyve.myapplication;
+package com.example.duyve.myapplication.Settings;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.firebase.client.AuthData;
+import com.example.duyve.myapplication.R;
 import com.firebase.client.Firebase;
 
 public class SettingsActivity extends AppCompatActivity {

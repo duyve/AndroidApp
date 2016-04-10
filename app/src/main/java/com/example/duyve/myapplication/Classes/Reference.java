@@ -1,4 +1,4 @@
-package com.example.duyve.myapplication;
+package com.example.duyve.myapplication.Classes;
 
 /**
  * Created by duyve on 4/9/2016.

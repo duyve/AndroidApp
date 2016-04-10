@@ -1,18 +1,20 @@
-package com.example.duyve.myapplication;
+package com.example.duyve.myapplication.Resume;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 
+import com.example.duyve.myapplication.Classes.ActivityCode;
+import com.example.duyve.myapplication.Classes.Experience;
+import com.example.duyve.myapplication.R;
+import com.example.duyve.myapplication.Classes.Reference;
+import com.example.duyve.myapplication.Settings.AboutActivity;
+import com.example.duyve.myapplication.Classes.User;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
-import com.firebase.client.Query;
 import com.firebase.client.ValueEventListener;
-
-import java.util.Iterator;
 
 public class EditResumeActivity extends Activity {
 
@@ -24,7 +26,6 @@ public class EditResumeActivity extends Activity {
         setContentView(R.layout.edit_resume);
         user = new User();
         loadUser("test");
-        String name = user.getFirstName();
     }
 
     public void onClick(View view){
@@ -86,6 +87,7 @@ public class EditResumeActivity extends Activity {
             }
         }
     }
+
     public void loadUser(String name){
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + name);
 
@@ -149,6 +151,7 @@ public class EditResumeActivity extends Activity {
                     String name = (String) reference.child("name").getValue();
                     String title = (String) reference.child("title").getValue();
                     String contact = (String) reference.child("contact").getValue();
+
                     //ADD INFORMATION TO USER
                     user.addReference(new Reference(name, title, contact));
                 }

@@ -1,10 +1,6 @@
-package com.example.duyve.myapplication;
+package com.example.duyve.myapplication.Classes;
 
-import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class User
 {

@@ -5,8 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
 
+import com.example.duyve.myapplication.Classes.ActivityCode;
+import com.example.duyve.myapplication.MainActivities.LoginActivity;
+import com.example.duyve.myapplication.MainActivities.MainMenuActivity;
+import com.example.duyve.myapplication.MainActivities.SignupActivity;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 //Custom imports

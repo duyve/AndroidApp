@@ -1,20 +1,24 @@
-package com.example.duyve.myapplication;
+package com.example.duyve.myapplication.MainActivities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.firebase.client.AuthData;
+import com.example.duyve.myapplication.Classes.ActivityCode;
+import com.example.duyve.myapplication.R;
+import com.example.duyve.myapplication.Resume.EditResumeActivity;
+import com.example.duyve.myapplication.Settings.SettingsActivity;
 import com.firebase.client.Firebase;
 
 public class MainMenuActivity extends AppCompatActivity {
+
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
-
     }
 
 

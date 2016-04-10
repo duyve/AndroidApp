@@ -1,4 +1,4 @@
-package com.example.duyve.myapplication;
+package com.example.duyve.myapplication.MainActivities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.duyve.myapplication.R;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 

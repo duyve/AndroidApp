@@ -1,8 +1,10 @@
-package com.example.duyve.myapplication;
+package com.example.duyve.myapplication.Settings;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+
+import com.example.duyve.myapplication.R;
 
 public class AboutActivity extends AppCompatActivity {
 
