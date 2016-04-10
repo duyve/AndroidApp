@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import com.example.duyve.myapplication.Classes.ActivityCode;
 import com.example.duyve.myapplication.R;
-import com.example.duyve.myapplication.SignupActivity;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;

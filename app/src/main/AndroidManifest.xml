@@ -62,7 +62,7 @@
 
         <!-- MainActivity -->
         <activity
-            android:name=".MainActivities.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -84,7 +84,7 @@
 
         <!-- SignupActivity -->
         <activity
-            android:name=".SignupActivity"
+            android:name=".MainActivities.SignupActivity"
             android:label="Sign Up" />
 
         <!-- Other -->
