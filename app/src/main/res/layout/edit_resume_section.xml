@@ -7,28 +7,43 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".EditResume$editHeaderActivity">
+    tools:context=".resume.EditSkillsActivity"
+    android:id="@+id/EditSkillsRelativeLayout">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/EditSkillsLinearLayout"
+        android:layout_above="@+id/editSkillsTextNew"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+    </LinearLayout>
 
     <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/sectionEditText"
-        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditSkillsTextNew"
+        android:layout_gravity="center_horizontal"
+        android:layout_above="@+id/EditSkillsButtonSave"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/button8"
-        android:singleLine="false" />
+        android:hint="Enter new skill here" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/setNewHeader"
-        android:id="@+id/button8"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:onClick="onClick"
+        android:text="Save New Skill"
+        android:id="@+id/EditSkillsButtonSave"
+        android:onClick="onSaveClick"
         android:background="@drawable/button_selector"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
