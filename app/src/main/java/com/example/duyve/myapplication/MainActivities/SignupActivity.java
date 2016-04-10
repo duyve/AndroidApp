@@ -10,11 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.duyve.myapplication.Classes.ActivityCode;
-import com.example.duyve.myapplication.Classes.Experience;
-import com.example.duyve.myapplication.Classes.Reference;
 import com.example.duyve.myapplication.R;
 import com.firebase.client.AuthData;
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 

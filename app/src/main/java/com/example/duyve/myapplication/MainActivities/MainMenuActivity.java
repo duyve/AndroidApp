@@ -9,7 +9,6 @@ import com.example.duyve.myapplication.Classes.ActivityCode;
 import com.example.duyve.myapplication.R;
 import com.example.duyve.myapplication.Resume.EditResumeActivity;
 import com.example.duyve.myapplication.Settings.SettingsActivity;
-import com.firebase.client.Firebase;
 
 public class MainMenuActivity extends AppCompatActivity {
 

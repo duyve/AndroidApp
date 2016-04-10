@@ -53,8 +53,8 @@ public class EditResumeActivity extends Activity {
                 intentClass = AboutActivity.class;
                 break;
             case R.id.EditResumeButtonSkills:
-                request = ActivityCode.EDIT_EDUCATION;
-                intentClass = AboutActivity.class;
+                request = ActivityCode.EDIT_SKILLS;
+                intentClass = EditSkillsActivity.class;
                 break;
             case R.id.EditResumeButtonReferences:
                 request = ActivityCode.EDIT_REFERENCES;
@@ -82,6 +82,7 @@ public class EditResumeActivity extends Activity {
                 case ActivityCode.EDIT_ACTIVITIES:
                     break;
                 case ActivityCode.EDIT_SKILLS:
+                    //Update Skills Section
                     break;
                 case ActivityCode.EDIT_REFERENCES:
                     break;
@@ -99,38 +100,38 @@ public class EditResumeActivity extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                //GET HEADER ELEMENTS
                 DataSnapshot header = dataSnapshot.child("header");
-                user.setFirstName((String) header.child("firstName").getValue());
-                user.setLastName((String) header.child("lastName").getValue());
-                user.setEmail((String) header.child("email").getValue());
-                user.setCareerTitle((String) header.child("careerTitle").getValue());
-                user.setAddress((String) header.child("address").getValue());
-                user.setCity((String) header.child("city").getValue());
-                user.setState((String) header.child("state").getValue());
-                user.setPhone((String) header.child("phone").getValue());
-                user.setZip((String) header.child("zip").getValue());
+                user.setFirstName( header.child("firstName").getValue().toString());
+                user.setLastName( header.child("lastName").getValue().toString());
+                user.setEmail( header.child("email").getValue().toString());
+                user.setCareerTitle( header.child("careerTitle").getValue().toString());
+                user.setAddress( header.child("address").getValue().toString());
+                user.setCity( header.child("city").getValue().toString());
+                user.setState( header.child("state").getValue().toString());
+                user.setPhone( header.child("phone").getValue().toString());
+                user.setZip( header.child("zip").getValue().toString());
 
                 //GET ACTIVITY ELEMENTS
                 Iterable<DataSnapshot> activities = dataSnapshot.child("activities").getChildren();
                 for(DataSnapshot activitiy: activities){
-                    user.addActivity((String) activitiy.getValue());
+                    user.addActivity( activitiy.getValue().toString());
                 }
 
                 //GET SKILL ELEMENTS
                 Iterable<DataSnapshot> skills = dataSnapshot.child("skills").getChildren();
                 for(DataSnapshot skill: skills){
-                    user.addSkill((String) skill.getValue());
+                    user.addSkill( skill.getValue().toString());
                 }
 
                 //GET WORK ELEMENTS
                 Iterable<DataSnapshot> experiences = dataSnapshot.child("experience").getChildren();
                 for(DataSnapshot experience: experiences){
-                    String name = (String) experience.child("name").getValue();
-                    String startDate = (String) experience.child("startDate").getValue();
-                    String endDate = (String) experience.child("endDate").getValue();
-                    String city = (String) experience.child("city").getValue();
-                    String state = (String) experience.child("state").getValue();
-                    String info = (String) experience.child("info").getValue();
-                    String position = (String) experience.child("position").getValue();
+                    String name = experience.child("name").getValue().toString();
+                    String startDate = experience.child("startDate").getValue().toString();
+                    String endDate = experience.child("endDate").getValue().toString();
+                    String city = experience.child("city").getValue().toString();
+                    String state = experience.child("state").getValue().toString();
+                    String info = experience.child("info").getValue().toString();
+                    String position = experience.child("position").getValue().toString();
                     //ADD INFORMATION TO USER
                     user.addExperience(new Experience(name, startDate, endDate, city, state, info, position));
                 }
@@ -139,12 +140,12 @@ public class EditResumeActivity extends Activity {
                 Iterable<DataSnapshot> educations = dataSnapshot.child("education").getChildren();
 
                 for(DataSnapshot education: educations){
-                    String name = (String) education.child("name").getValue();
-                    String startDate = (String) education.child("startDate").getValue();
-                    String endDate = (String) education.child("endDate").getValue();
-                    String city = (String) education.child("city").getValue();
-                    String state = (String) education.child("state").getValue();
-                    String info = (String) education.child("info").getValue();
+                    String name = education.child("name").getValue().toString();
+                    String startDate = education.child("startDate").getValue().toString();
+                    String endDate = education.child("endDate").getValue().toString();
+                    String city = education.child("city").getValue().toString();
+                    String state = education.child("state").getValue().toString();
+                    String info = education.child("info").getValue().toString();
                     //ADD INFORMATION TO USER
                     user.addEducation(new Education(name, startDate, endDate, city, state, info));
                 }
@@ -152,10 +153,10 @@ public class EditResumeActivity extends Activity {
                 //GET REFERENCE ELEMENTS
                 Iterable<DataSnapshot> references = dataSnapshot.child("references").getChildren();
                 for(DataSnapshot reference: references){
-                    String name = (String) reference.child("name").getValue();
-                    String title = (String) reference.child("relation").getValue();
-                    String email = (String) reference.child("email").getValue();
-                    String phone = (String) reference.child("phone").getValue();
+                    String name = reference.child("name").getValue().toString();
+                    String title = reference.child("relation").getValue().toString();
+                    String email = reference.child("email").getValue().toString();
+                    String phone = reference.child("phone").getValue().toString();
 
 
                     //ADD INFORMATION TO USER

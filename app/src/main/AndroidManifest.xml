@@ -74,29 +74,29 @@
 
         <!-- LoginActivity -->
         <activity
-            android:name=".mainActivities.LoginActivity"
+            android:name=".MainActivities.LoginActivity"
             android:label="@string/title_activity_login" />
 
         <!-- EditResumeActivity -->
         <activity
-            android:name=".resume.EditResumeActivity"
+            android:name=".Resume.EditResumeActivity"
             android:label="@string/title_activity_edit_resume" />
 
         <!-- SignupActivity -->
         <activity
-            android:name=".mainActivities.SignupActivity"
+            android:name=".MainActivities.SignupActivity"
             android:label="Sign Up" />
 
         <!-- Other -->
-        <activity android:name=".settings.SettingsActivity" />
-        <activity android:name=".mainActivities.MainMenuActivity" />
-        <activity android:name=".settings.ChangeEmailActivity" />
-        <activity android:name=".settings.ChangePasswordActivity" />
-        <activity android:name=".settings.AboutActivity" />
+        <activity android:name=".Settings.SettingsActivity" />
+        <activity android:name=".MainActivities.MainMenuActivity" />
+        <activity android:name=".Settings.ChangeEmailActivity" />
+        <activity android:name=".Settings.ChangePasswordActivity" />
+        <activity android:name=".Settings.AboutActivity" />
         <activity
-            android:name=".mainActivities.ForgotPasswordActivity"
+            android:name=".MainActivities.ForgotPasswordActivity"
             android:label="Write Your Password Down" />
-        <activity android:name=".resume.EditSkillsActivity"/>
+        <activity android:name=".Resume.EditSkillsActivity"/>
     </application>
 
 </manifest>
