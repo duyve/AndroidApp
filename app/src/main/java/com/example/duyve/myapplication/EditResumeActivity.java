@@ -101,6 +101,7 @@ public class EditResumeActivity extends Activity {
                 user.setAddress((String) header.child("address").getValue());
                 user.setCity((String) header.child("city").getValue());
                 user.setState((String) header.child("state").getValue());
+                user.setPhone((String) header.child("phone").getValue());
                 user.setZip((String) header.child("zip").getValue());
 
                 //GET ACTIVITY ELEMENTS
@@ -112,7 +113,7 @@ public class EditResumeActivity extends Activity {
                 //GET SKILL ELEMENTS
                 Iterable<DataSnapshot> skills = dataSnapshot.child("skills").getChildren();
                 for(DataSnapshot skill: skills){
-                    user.addActivity((String) skill.getValue());
+                    user.addSkill((String) skill.getValue());
                 }
 
                 //GET WORK ELEMENTS

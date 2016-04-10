@@ -39,15 +39,15 @@ public class User
     private ArrayList<Reference> references;
 
     public User() {
-//        this.email = "ANDROID";
-//        this.firstName = "ANDROID";
-//        this.lastName = "ANDROID";
-//        this.phone = "ANDROID";
-//        this.careerTitle = "ANDROID";
-//        this.address = "ANDROID";
-//        this.city = "ANDROID";
-//        this.state = "AD";
-//        this.zip = "ANDROID";
+        this.email = "ANDROID";
+        this.firstName = "ANDROID";
+        this.lastName = "ANDROID";
+        this.phone = "ANDROID";
+        this.careerTitle = "ANDROID";
+        this.address = "ANDROID";
+        this.city = "ANDROID";
+        this.state = "AD";
+        this.zip = "ANDROID";
         this.skills = new ArrayList<>();
         this.actvities = new ArrayList<>();
         this.education = new ArrayList<>();
