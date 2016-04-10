@@ -1,4 +1,4 @@
-package com.example.duyve.myapplication.Classes;
+package com.example.duyve.myapplication.MainActivities;
 
 /**
  * This class if for handling the onActivityResults from different activites

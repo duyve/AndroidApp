@@ -62,7 +62,7 @@
 
         <!-- MainActivity -->
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -79,12 +79,12 @@
 
         <!-- EditResumeActivity -->
         <activity
-            android:name=".Resume.EditResumeActivity"
+            android:name=".MainActivities.EditResumeActivity"
             android:label="@string/title_activity_edit_resume" />
 
         <!-- SignupActivity -->
         <activity
-            android:name=".MainActivities.SignupActivity"
+            android:name=".SignupActivity"
             android:label="Sign Up" />
 
         <!-- Other -->
@@ -96,7 +96,7 @@
         <activity
             android:name=".MainActivities.ForgotPasswordActivity"
             android:label="Write Your Password Down" />
-        <activity android:name=".Resume.EditSkillsActivity"/>
+        <activity android:name=".MainActivities.EditSkillsActivity"/>
     </application>
 
 </manifest>

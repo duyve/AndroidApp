@@ -1,4 +1,4 @@
-package com.example.duyve.myapplication.Classes;
+package com.example.duyve.myapplication.MainActivities;
 
 public class Reference {
     private String name;

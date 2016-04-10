@@ -1,4 +1,4 @@
-package com.example.duyve.myapplication.Classes;
+package com.example.duyve.myapplication.MainActivities;
 
 public class Education {
     private String name;

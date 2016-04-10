@@ -5,9 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.duyve.myapplication.Classes.ActivityCode;
 import com.example.duyve.myapplication.R;
-import com.example.duyve.myapplication.Resume.EditResumeActivity;
 import com.example.duyve.myapplication.Settings.SettingsActivity;
 
 public class MainMenuActivity extends AppCompatActivity {

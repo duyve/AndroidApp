@@ -1,4 +1,4 @@
-package com.example.duyve.myapplication;
+package com.example.duyve.myapplication.MainActivities;
 //Standard Android imports
 
 import android.content.Intent;
@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.example.duyve.myapplication.Classes.ActivityCode;
-import com.example.duyve.myapplication.MainActivities.LoginActivity;
-import com.example.duyve.myapplication.MainActivities.MainMenuActivity;
-import com.example.duyve.myapplication.MainActivities.SignupActivity;
+import com.example.duyve.myapplication.R;
+import com.example.duyve.myapplication.SignupActivity;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 //Custom imports
