@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class User
 {
-
+    private String id;
 
     private String email;
 
@@ -162,6 +162,14 @@ public class User
 
     public void setZip(String zip) {
         this.zip = zip;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     //END GETTERS AND SETTERS

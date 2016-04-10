@@ -18,15 +18,16 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
 public class EditResumeActivity extends Activity {
-
     private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_resume);
+        String id = new Firebase("https://sizzling-torch-8367.firebaseio.com").getAuth().getUid();
         user = new User();
-        loadUser("test");
+        user.setId(id);
+        loadUser(user.getId());
     }
 
     public void onClick(View view){
@@ -63,6 +64,7 @@ public class EditResumeActivity extends Activity {
                 throw new IllegalStateException();
         }
         Intent i = new Intent(this, intentClass);
+        i.putExtra("id", user.getId());
         startActivityForResult(i, request);
     }
 
@@ -89,8 +91,8 @@ public class EditResumeActivity extends Activity {
         }
     }
 
-    public void loadUser(String name){
-        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + name);
+    public void loadUser(String id){
+        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id);
 
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
