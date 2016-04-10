@@ -2,123 +2,161 @@ package com.example.duyve.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.Query;
+import com.firebase.client.ValueEventListener;
+
+import java.util.Iterator;
 
 public class EditResumeActivity extends Activity {
 
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_resume);
+        user = new User();
+        loadUser("test");
+        String name = user.getFirstName();
     }
 
     public void onClick(View view){
-        TextView text;
+
         int request;
+        Class<?> intentClass;
+
         switch(view.getId()){
             case R.id.EditResumeButtonEditHeader:
-                text = (TextView) findViewById(R.id.EditResumeTextEducationInfo);
                 request = ActivityCode.EDIT_HEADER;
+                intentClass = AboutActivity.class;
                 break;
             case R.id.EditResumeButtonEditEducation:
-                text = (TextView) findViewById(R.id.EditResumeButtonEditEducation);
-                request = 2;
+                request = ActivityCode.EDIT_EDUCATION;
+                intentClass = AboutActivity.class;
                 break;
             case R.id.EditResumeButtonExperience:
-                text = (TextView) findViewById(R.id.EditResumeTextExperienceInfo);
-                request = 3;
+                request = ActivityCode.EDIT_EXPERIENCES;
+                intentClass = AboutActivity.class;
                 break;
             case R.id.EditResumeButtonActivities:
-                text = (TextView) findViewById(R.id.EditResumeTextActivitiesInfo);
-                request = 4;
+                request = ActivityCode.EDIT_ACTIVITIES;
+                intentClass = AboutActivity.class;
                 break;
             case R.id.EditResumeButtonSkills:
-                text = (TextView) findViewById(R.id.EditReumeTextSkillsInfo);
-                request = 5;
+                request = ActivityCode.EDIT_EDUCATION;
+                intentClass = AboutActivity.class;
                 break;
             case R.id.EditResumeButtonReferences:
-                text = (TextView) findViewById(R.id.EditResumeTextReferencesInfo);
-                request = 6;
+                request = ActivityCode.EDIT_REFERENCES;
+                intentClass = AboutActivity.class;
                 break;
             default:
                 throw new IllegalStateException();
         }
-        String value = text.getText().toString();
-        Intent i = new Intent(this, EditSectionActivity.class);
-        i.putExtra("yourkey", value);
+        Intent i = new Intent(this, intentClass);
         startActivityForResult(i, request);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
-        if (requestCode == ActivityCode.LOG_IN)
-        {
-            if (resultCode == RESULT_CANCELED)
-            {
-                Intent mainScreen = new Intent(this, MainActivity.class);
-                mainScreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                mainScreen.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                startActivity(mainScreen);
-            }
-
-        }
 
         if(resultCode == RESULT_OK){
-            TextView editedText;
             switch(requestCode) {
-                case 1:
-                    editedText = (TextView) findViewById(R.id.EditResumeTextHeaderInfo);
+                case ActivityCode.EDIT_HEADER:
                     break;
-                case 2:
-                    editedText = (TextView) findViewById(R.id.EditResumeTextExperienceInfo);
+                case ActivityCode.EDIT_EDUCATION:
                     break;
-                case 3:
-                    editedText = (TextView) findViewById(R.id.EditResumeTextExperienceInfo);
+                case ActivityCode.EDIT_EXPERIENCES:
                     break;
-                case 4:
-                    editedText = (TextView) findViewById(R.id.EditResumeTextActivitiesInfo);
+                case ActivityCode.EDIT_ACTIVITIES:
                     break;
-                case 5:
-                    editedText = (TextView) findViewById(R.id.EditReumeTextSkillsInfo);
+                case ActivityCode.EDIT_SKILLS:
                     break;
-                case 6:
-                    editedText = (TextView) findViewById(R.id.EditResumeTextReferencesInfo);
+                case ActivityCode.EDIT_REFERENCES:
                     break;
                 default:
                     throw new IllegalStateException();
             }
-            if(data.hasExtra("returnkey")){
-                String result = data.getExtras().getString("returnkey");
-                if(result != null && result.length() > 0){
-                    editedText.setText(result);
-                }
-            }
         }
     }
+    public void loadUser(String name){
+        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + name);
 
-    public static class EditSectionActivity extends AppCompatActivity {
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+               //GET HEADER ELEMENTS
+                DataSnapshot header = dataSnapshot.child("header");
+                user.setFirstName((String) header.child("firstName").getValue());
+                user.setLastName((String) header.child("lastName").getValue());
+                user.setEmail((String) header.child("email").getValue());
+                user.setCareerTitle((String) header.child("careerTitle").getValue());
+                user.setAddress((String) header.child("address").getValue());
+                user.setCity((String) header.child("city").getValue());
+                user.setState((String) header.child("state").getValue());
+                user.setZip((String) header.child("zip").getValue());
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.edit_resume_section);
-            Bundle extras = getIntent().getExtras();
-            String value = extras.getString("yourkey");
-            EditText text = (EditText) findViewById(R.id.sectionEditText);
-            text.setText(value);
-        }
-        public void onClick(View view){
-            Intent i2 = new Intent();
-            EditText text = (EditText) findViewById(R.id.sectionEditText);
-            String back = text.getText().toString();
-            i2.putExtra("returnkey", back);
-            setResult(RESULT_OK, i2);
-            super.finish();
-        }
+                //GET ACTIVITY ELEMENTS
+                Iterable<DataSnapshot> activities = dataSnapshot.child("activities").getChildren();
+                for(DataSnapshot activitiy: activities){
+                    user.addActivity((String) activitiy.getValue());
+                }
+
+                //GET SKILL ELEMENTS
+                Iterable<DataSnapshot> skills = dataSnapshot.child("skills").getChildren();
+                for(DataSnapshot skill: skills){
+                    user.addActivity((String) skill.getValue());
+                }
+
+                //GET WORK ELEMENTS
+                Iterable<DataSnapshot> experiences = dataSnapshot.child("experience").getChildren();
+                for(DataSnapshot experience: experiences){
+                    String name = (String) experience.child("name").getValue();
+                    String startDate = (String) experience.child("startDate").getValue();
+                    String endDate = (String) experience.child("endDate").getValue();
+                    String city = (String) experience.child("city").getValue();
+                    String state = (String) experience.child("state").getValue();
+                    String info = (String) experience.child("info").getValue();
+                    //ADD INFORMATION TO USER
+                    user.addExperience(new Experience(name, startDate, endDate, city, state, info));
+                }
+
+                //ADD EDUCATION ELEMENTS
+                Iterable<DataSnapshot> educations = dataSnapshot.child("education").getChildren();
+
+                for(DataSnapshot education: educations){
+                    String name = (String) education.child("name").getValue();
+                    String startDate = (String) education.child("startDate").getValue();
+                    String endDate = (String) education.child("endDate").getValue();
+                    String city = (String) education.child("city").getValue();
+                    String state = (String) education.child("state").getValue();
+                    String info = (String) education.child("info").getValue();
+                    //ADD INFORMATION TO USER
+                    user.addEducation(new Experience(name, startDate, endDate, city, state, info));
+                }
+
+                //GET REFERENCE ELEMENTS
+                Iterable<DataSnapshot> references = dataSnapshot.child("references").getChildren();
+                for(DataSnapshot reference: references){
+                    String name = (String) reference.child("name").getValue();
+                    String title = (String) reference.child("title").getValue();
+                    String contact = (String) reference.child("contact").getValue();
+                    //ADD INFORMATION TO USER
+                    user.addReference(new Reference(name, title, contact));
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                user = null;
+            }
+        });
     }
 }

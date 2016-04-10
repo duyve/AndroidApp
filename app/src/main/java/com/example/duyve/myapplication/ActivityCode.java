@@ -13,7 +13,9 @@ public class ActivityCode {
     public static final int SETTINGS = 106;
     public static final int EDIT_SKILLS = 107;
     public static final int EDIT_REFERENCES = 108;
-    public static final int EDIT_EXPERENCES = 109;
+    public static final int EDIT_EXPERIENCES = 109;
     public static final int EDIT_HEADER = 110;
     public static final int EDIT_ACTIVITIES = 111;
+    public static final int EDIT_EDUCATION = 112;
+
 }
