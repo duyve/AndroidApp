@@ -79,7 +79,7 @@
 
         <!-- EditResumeActivity -->
         <activity
-            android:name=".MainActivities.EditResumeActivity"
+            android:name=".Resume.EditResumeActivity"
             android:label="@string/title_activity_edit_resume" />
 
         <!-- SignupActivity -->
@@ -96,7 +96,7 @@
         <activity
             android:name=".MainActivities.ForgotPasswordActivity"
             android:label="Write Your Password Down" />
-        <activity android:name=".MainActivities.EditSkillsActivity"/>
+        <activity android:name=".Resume.EditSkillsActivity"/>
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.duyve.myapplication.Classes.ActivityCode;
 import com.example.duyve.myapplication.R;
 import com.example.duyve.myapplication.SignupActivity;
 import com.firebase.client.AuthData;
