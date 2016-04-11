@@ -1,5 +1,7 @@
 package com.example.duyve.myapplication.Resume;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -150,7 +152,28 @@ public class EditReferencesActivity extends AppCompatActivity {
     }
 
     public void onReferenceClick(View view){
+        final LinearLayout layout = (LinearLayout) view;
 
+        new AlertDialog.Builder(this)
+                .setTitle("Delete entry")
+                .setMessage("Are you sure you want to delete this reference?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        for(int i = 0; i<referenceViews.size();i++){
+                            if(referenceViews.get(i).getLayout() == layout){
+                                Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/references/" +referenceViews.get(i).getId());
+                                ref.removeValue();
+                            }
+                        }
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 
     public void onSaveClick(View view){
