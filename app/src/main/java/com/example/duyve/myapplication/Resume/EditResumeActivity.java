@@ -46,7 +46,7 @@ public class EditResumeActivity extends Activity {
                 break;
             case R.id.EditResumeButtonExperience:
                 request = ActivityCode.EDIT_EXPERIENCES;
-                intentClass = AboutActivity.class;
+                intentClass = EditExperiencesActivity.class;
                 break;
             case R.id.EditResumeButtonActivities:
                 request = ActivityCode.EDIT_ACTIVITIES;

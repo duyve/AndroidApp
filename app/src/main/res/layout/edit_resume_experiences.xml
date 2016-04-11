@@ -8,26 +8,27 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.duyve.myapplication.Resume.EditReferencesActivity">
+    tools:context="com.example.duyve.myapplication.Resume.EditExperiencesActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/EditReferencesScollViewReferences"
+        android:id="@+id/EditExperiencesScrollViewEntries"
         android:layout_weight="1">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/EditReferencesLinearLayout"></LinearLayout>
+            android:id="@+id/EditExperiencesLinearLayout"></LinearLayout>
+
     </ScrollView>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/EditReferencesScrollViewInput">
+        android:id="@+id/EditExperiencesScrollViewInput">
 
 
         <LinearLayout
@@ -38,34 +39,59 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="Name"
+                android:inputType="text"
+                android:hint="Company Name"
                 android:ems="10"
-                android:id="@+id/EditReferencesTextName" />
+                android:id="@+id/EditExperiencesTextName" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="Relation"
+                android:inputType="text"
+                android:hint="Position"
                 android:ems="10"
-                android:id="@+id/EditReferencesTextRelaton" />
+                android:id="@+id/EditExperiencesTextPosition" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="Email"
+                android:inputType="date"
+                android:hint="Start Date"
                 android:ems="10"
-                android:id="@+id/EditReferencesTextEmail" />
+                android:id="@+id/EditExperiencesTextStartDate" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
-                android:hint="Phone"
+                android:inputType="date"
+                android:hint="End Date"
                 android:ems="10"
-                android:id="@+id/EditReferencesTextPhone" />
+                android:id="@+id/EditExperiencesTextEndDate" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="City"
+                android:ems="10"
+                android:id="@+id/EditExperiencesTextCity" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/EditExperiencesSpinnerState"
+                android:layout_gravity="center_horizontal"
+                android:spinnerMode="dropdown"
+                android:entries="@array/states" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textLongMessage"
+                android:hint="Info"
+                android:ems="10"
+                android:id="@+id/EditExperiencesTextInfo" />
+
 
         </LinearLayout>
     </ScrollView>
@@ -75,7 +101,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit New Reference"
+        android:text="Submit New Experience"
         android:id="@+id/EditReferencesButtonSubmit"
         android:onClick="onSaveClick"/>
 

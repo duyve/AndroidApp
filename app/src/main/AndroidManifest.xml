@@ -104,7 +104,8 @@
         <activity android:name=".Resume.EditSkillsActivity" />
         <activity android:name=".Resume.EditActivitiesActivity" />
         <activity android:name=".Resume.EditHeaderActivity" />
-        <activity android:name=".Resume.EditReferencesActivity"></activity>
+        <activity android:name=".Resume.EditReferencesActivity" />
+        <activity android:name=".Resume.EditExperiencesActivity"></activity>
     </application>
 
 </manifest>
