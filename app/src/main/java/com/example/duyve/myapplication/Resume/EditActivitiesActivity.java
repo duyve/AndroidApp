@@ -4,10 +4,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.duyve.myapplication.R;
 import com.firebase.client.DataSnapshot;
@@ -108,6 +110,10 @@ public class EditActivitiesActivity extends AppCompatActivity {
     public void onSaveClick(View view){
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/activities");
         EditText activity = (EditText) findViewById(R.id.EditActivitiesTextNew);
-        ref.push().setValue(activity.getText().toString());
+        if(!TextUtils.isEmpty(activity.getText().toString())){
+            Toast.makeText(EditActivitiesActivity.this, "Added Skill Successfully!", Toast.LENGTH_SHORT).show();
+            ref.push().setValue(activity.getText().toString());
+            activity.setText("");
+        }
     }
 }

@@ -24,7 +24,7 @@ public class EditResumeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_resume);
-        String id = new Firebase("https://sizzling-torch-8367.firebaseio.com").getAuth().getUid();
+        String id = getIntent().getStringExtra("id");
         user = new User();
         user.setId(id);
         loadUser(user.getId());
@@ -108,7 +108,7 @@ public class EditResumeActivity extends Activity {
                 user.setCity( header.child("city").getValue().toString());
                 user.setState( header.child("state").getValue().toString());
                 user.setPhone( header.child("phone").getValue().toString());
-                user.setZip( header.child("zip").getValue().toString());
+                user.setZip( header.child("zipCode").getValue().toString());
 
                 //GET ACTIVITY ELEMENTS
                 Iterable<DataSnapshot> activities = dataSnapshot.child("activities").getChildren();

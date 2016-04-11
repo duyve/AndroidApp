@@ -27,6 +27,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
     public void onEditClick(View view){
         Intent i = new Intent(this, EditResumeActivity.class);
+        i.putExtra("id", id);
         startActivity(i);
     }
 

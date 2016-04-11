@@ -20,8 +20,6 @@ public class WebViewActivity extends AppCompatActivity{
         WebSettings s = webview.getSettings();
         s.setJavaScriptEnabled(true);
         s.setDomStorageEnabled(true);
-        s.setAllowUniversalAccessFromFileURLs(true);
-        s.setAllowFileAccessFromFileURLs(true);
         webview.loadUrl("https://sizzling-torch-8367.firebaseapp.com?username=" + id);
     }
 }
