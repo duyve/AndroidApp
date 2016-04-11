@@ -66,8 +66,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -99,11 +99,12 @@
         <activity
             android:name=".MainActivities.ForgotPasswordActivity"
             android:label="Write Your Password Down" />
-        <activity android:name=".Resume.EditSkillsActivity"/>
-        <activity android:name=".Resume.WebViewActivity"/>
+        <activity android:name=".Resume.EditSkillsActivity" />
+        <activity android:name=".Resume.WebViewActivity" />
         <activity android:name=".Resume.EditSkillsActivity" />
         <activity android:name=".Resume.EditActivitiesActivity" />
-        <activity android:name=".Resume.EditHeaderActivity"></activity>
+        <activity android:name=".Resume.EditHeaderActivity" />
+        <activity android:name=".Resume.EditReferencesActivity"></activity>
     </application>
 
 </manifest>

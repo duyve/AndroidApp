@@ -58,7 +58,7 @@ public class EditResumeActivity extends Activity {
                 break;
             case R.id.EditResumeButtonReferences:
                 request = ActivityCode.EDIT_REFERENCES;
-                intentClass = AboutActivity.class;
+                intentClass = EditReferencesActivity.class;
                 break;
             default:
                 throw new IllegalStateException();

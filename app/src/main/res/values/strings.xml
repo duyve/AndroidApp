@@ -9,56 +9,56 @@
     </string-array>
 
     <string-array name="states">
-        <item name="Alabama" code="AL" >AL</item>
-        <item name="Alaska" code="AK" >AK</item>
-        <item name="Arizona" code="AZ" >AZ</item>
-        <item name="Arkansas" code="AR" >AR</item>
-        <item name="California" code="CA" >CA</item>
-        <item name="Colorado" code="CO" >CO</item>
-        <item name="Connecticut" code="CT" >CT</item>
-        <item name="Delaware" code="DE" >DE</item>
-        <item name="Florida" code="FL" >FL</item>
-        <item name="Georgia" code="GA" >GA</item>
-        <item name="Hawaii" code="HI" >HI</item>
-        <item name="Idaho" code="ID" >ID</item>
-        <item name="Illinois" code="IL" >IL</item>
-        <item name="Indiana" code="IN" >N</item>
-        <item name="Iowa" code="IA" >IA</item>
-        <item name="Kansas" code="KS" >KS</item>
-        <item name="Kentucky" code="KY" >KY</item>
-        <item name="Louisiana" code="LA" >LA</item>
-        <item name="Maine" code="ME" >ME</item>
-        <item name="Maryland" code="MD" >MD</item>
+        <item name="Alabama" code="AL">AL</item>
+        <item name="Alaska" code="AK">AK</item>
+        <item name="Arizona" code="AZ">AZ</item>
+        <item name="Arkansas" code="AR">AR</item>
+        <item name="California" code="CA">CA</item>
+        <item name="Colorado" code="CO">CO</item>
+        <item name="Connecticut" code="CT">CT</item>
+        <item name="Delaware" code="DE">DE</item>
+        <item name="Florida" code="FL">FL</item>
+        <item name="Georgia" code="GA">GA</item>
+        <item name="Hawaii" code="HI">HI</item>
+        <item name="Idaho" code="ID">ID</item>
+        <item name="Illinois" code="IL">IL</item>
+        <item name="Indiana" code="IN">N</item>
+        <item name="Iowa" code="IA">IA</item>
+        <item name="Kansas" code="KS">KS</item>
+        <item name="Kentucky" code="KY">KY</item>
+        <item name="Louisiana" code="LA">LA</item>
+        <item name="Maine" code="ME">ME</item>
+        <item name="Maryland" code="MD">MD</item>
         <item name="Massachusetts" code="MA">MA</item>
-        <item name="Michigan" code="MI" >MI</item>
-        <item name="Minnesota" code="MN" >MN</item>
-        <item name="Mississippi" code="MS" >MS</item>
-        <item name="Missouri" code="MO" >MO</item>
-        <item name="Montana" code="MT" >MT</item>
-        <item name="Nebraska" code="NE" >NE</item>
-        <item name="Nevada" code="NV" >NV</item>
-        <item name="New Hampshire" code="NH" >NH</item>
-        <item name="New Jersey" code="NJ" >NJ</item>
-        <item name="New Mexico" code="NM" >NM</item>
-        <item name="New York" code="NY" >NY</item>
-        <item name="North Carolina" code="NC" >NC</item>
-        <item name="North Dakota" code="ND" >ND</item>
-        <item name="Ohio" code="OH" >OH</item>
-        <item name="Oklahoma" code="OK" >OK</item>
-        <item name="Oregon" code="OR" >OR</item>
-        <item name="Pennsylvania" code="PA" >PA</item>
-        <item name="Rhode Island" code="RI" >RI</item>
-        <item name="South Carolina" code="SC" >SC</item>
-        <item name="South Dakota" code="SD" >SD</item>
-        <item name="Tennessee" code="TN" >TN</item>
-        <item name="Texas" code="TX" >TX</item>
-        <item name="Utah" code="UT" >UT</item>
-        <item name="Vermont" code="VT" >VT</item>
-        <item name="Virginia" code="VA" >VA</item>
-        <item name="Washington" code="WA" >WA</item>
-        <item name="West Virginia" code="WV" >WV</item>
-        <item name="Wisconsin" code="WI" >WI</item>
-        <item name="Wyoming" code="WY" >WY</item>
+        <item name="Michigan" code="MI">MI</item>
+        <item name="Minnesota" code="MN">MN</item>
+        <item name="Mississippi" code="MS">MS</item>
+        <item name="Missouri" code="MO">MO</item>
+        <item name="Montana" code="MT">MT</item>
+        <item name="Nebraska" code="NE">NE</item>
+        <item name="Nevada" code="NV">NV</item>
+        <item name="New Hampshire" code="NH">NH</item>
+        <item name="New Jersey" code="NJ">NJ</item>
+        <item name="New Mexico" code="NM">NM</item>
+        <item name="New York" code="NY">NY</item>
+        <item name="North Carolina" code="NC">NC</item>
+        <item name="North Dakota" code="ND">ND</item>
+        <item name="Ohio" code="OH">OH</item>
+        <item name="Oklahoma" code="OK">OK</item>
+        <item name="Oregon" code="OR">OR</item>
+        <item name="Pennsylvania" code="PA">PA</item>
+        <item name="Rhode Island" code="RI">RI</item>
+        <item name="South Carolina" code="SC">SC</item>
+        <item name="South Dakota" code="SD">SD</item>
+        <item name="Tennessee" code="TN">TN</item>
+        <item name="Texas" code="TX">TX</item>
+        <item name="Utah" code="UT">UT</item>
+        <item name="Vermont" code="VT">VT</item>
+        <item name="Virginia" code="VA">VA</item>
+        <item name="Washington" code="WA">WA</item>
+        <item name="West Virginia" code="WV">WV</item>
+        <item name="Wisconsin" code="WI">WI</item>
+        <item name="Wyoming" code="WY">WY</item>
     </string-array>
 
     <!-- Strings related to login -->

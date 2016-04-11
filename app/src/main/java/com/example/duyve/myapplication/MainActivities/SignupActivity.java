@@ -101,7 +101,7 @@ public class SignupActivity extends AppCompatActivity
                     map.put("state", "AL");
                     map.put("info", "Example info" + i);
                     //ADD INFORMATION TO USER
-                    ref.child("users").child(id).child("experiences").child(Integer.toString(i)).setValue(map);
+                    ref.child("users").child(id).child("experiences").push().setValue(map);
                 }
 
                 //ADD EDUCATION ELEMENTS
@@ -114,7 +114,7 @@ public class SignupActivity extends AppCompatActivity
                     map.put("state", "AL");
                     map.put("info", "Example info" + i);
                     //ADD INFORMATION TO USER
-                    ref.child("users").child(id).child("education").child(Integer.toString(i)).setValue(map);
+                    ref.child("users").child(id).child("education").push().setValue(map);
                 }
 
                 //GET REFERENCE ELEMENTS
@@ -125,7 +125,7 @@ public class SignupActivity extends AppCompatActivity
                     map.put("email", "example@gmail.com");
                     map.put("phone", "City " + i);
                     //ADD INFORMATION TO USER
-                    ref.child("users").child(id).child("references").child(Integer.toString(i)).setValue(map);
+                    ref.child("users").child(id).child("references").push().setValue(map);
                 }
                 //Return to Parent call
                 finish();
