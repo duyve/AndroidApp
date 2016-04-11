@@ -1,27 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryLight"
-    android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
-
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <!--
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>-->
-
-    </android.support.design.widget.AppBarLayout>
+    android:id="@+id/main"
+    android:background="@drawable/back">
 
     <Button
         android:id="@+id/logInButton"
@@ -33,9 +16,8 @@
         android:background="@drawable/button_selector"
         android:textColor="@color/colorPrimaryText"
 
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
-        android:layout_above="@+id/signUpButton"/>
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/signUpButton"
@@ -47,10 +29,9 @@
         android:background="@drawable/button_selector"
         android:textColor="@color/colorPrimaryText"
 
-        android:layout_marginBottom="48dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/logInButton"
-        android:layout_alignStart="@+id/logInButton"/>
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/logInButton"
+        android:layout_alignStart="@+id/logInButton" />
 
     <TextView
         android:id="@+id/textView"
@@ -58,9 +39,11 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/app_name"
-
+        android:textSize="75dp"
         android:textColor="@color/colorPrimary"
 
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginTop="96dp"
+        android:layout_below="@+id/view"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

@@ -8,6 +8,7 @@ import android.view.View;
 import com.example.duyve.myapplication.Classes.ActivityCode;
 import com.example.duyve.myapplication.R;
 import com.example.duyve.myapplication.Resume.EditResumeActivity;
+import com.example.duyve.myapplication.Resume.WebViewActivity;
 import com.example.duyve.myapplication.Settings.SettingsActivity;
 import com.firebase.client.Firebase;
 
@@ -30,7 +31,8 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void onViewClick(View view){
-        Intent i = new Intent(this, SettingsActivity.class);
+        Intent i = new Intent(this, WebViewActivity.class);
+        i.putExtra("id", id);
         startActivity(i);
     }
 

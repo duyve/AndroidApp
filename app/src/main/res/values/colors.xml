@@ -6,7 +6,6 @@
     <color name="colorAccent">#FF6E40</color>
     <color name="colorAccentDark">#FF3D00</color>
     <color name="colorAccentLight">#FF9E80</color>
-    <color name="colorAccentFallback">#FFFFFF</color>
     <color name="colorPrimaryText">#FFFFFFFF</color>
     <color name="colorSecondaryText">#46000000</color>
     <color name="colorDisabledText">#32000000</color>

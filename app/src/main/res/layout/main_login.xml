@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".mainActivities$SignupActivity">
+    tools:context=".mainActivities$SignupActivity"
+    android:background="@drawable/back">
 
 
     <EditText
@@ -15,6 +16,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:hint="Email"
+        android:textColorHint="@color/colorPrimary"
         android:ems="10"
         android:id="@+id/LoginTextEmail"
         android:layout_alignParentTop="true"
@@ -26,6 +28,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="Password"
+        android:textColorHint="@color/colorPrimary"
         android:ems="10"
         android:id="@+id/LoginTextPassword"
         android:layout_below="@+id/LoginTextEmail"
@@ -35,10 +38,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Log in"
+        android:fontFamily=""
         android:id="@+id/LoginButtonSubmit"
         android:layout_below="@+id/LoginTextPassword"
         android:layout_centerHorizontal="true"
-
+        android:background="@drawable/button_selector"
+        android:textColor="@color/white"
         android:onClick="loginAccount"/>
 
     <TextView
@@ -46,18 +51,22 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Forgot Password?"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/LoginTextForgotPassword"
-        android:layout_below="@+id/LoginButtonSubmit"
-        android:layout_centerHorizontal="true"
-        android:onClick="switchToForgot" />
+        android:onClick="switchToForgot"
+        android:textSize="20dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Sign up"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/LoginTextSignup"
+        android:onClick="switchToSignup"
+        android:textSize="20dp"
         android:layout_below="@+id/LoginTextForgotPassword"
-        android:layout_centerHorizontal="true"
-        android:onClick="switchToSignup"/>
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
