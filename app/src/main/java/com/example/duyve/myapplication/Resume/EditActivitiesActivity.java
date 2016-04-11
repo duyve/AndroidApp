@@ -2,8 +2,8 @@ package com.example.duyve.myapplication.Resume;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -14,19 +14,20 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+
 import java.util.ArrayList;
 
-public class EditSkillsActivity extends AppCompatActivity {
+public class EditActivitiesActivity extends AppCompatActivity {
     private String id;
-    private ArrayList<Skill> skillViews = new ArrayList<>();
+    private ArrayList<Activity> activityViews = new ArrayList<>();
 
-    private class Skill{
+    private class Activity{
         String id;
-        TextView skill;
+        TextView activity;
 
-        public Skill(String id, TextView skill) {
+        public Activity(String id, TextView activity) {
             this.id = id;
-            this.skill = skill;
+            this.activity = activity;
         }
 
         public String getId() {
@@ -37,40 +38,40 @@ public class EditSkillsActivity extends AppCompatActivity {
             this.id = id;
         }
 
-        public TextView getSkill() {
-            return skill;
+        public TextView getActivity() {
+            return activity;
         }
 
-        public void setSkill(TextView skill) {
-            this.skill = skill;
+        public void setActivity(TextView activity) {
+            this.activity = activity;
         }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.edit_resume_skills);
+        setContentView(R.layout.edit_resume_activities);
         id = getIntent().getStringExtra("id");
-        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/skills");
+        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/activities");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                skillViews = new ArrayList<>();
-                LinearLayout layout = (LinearLayout) findViewById(R.id.EditSkillsLinearLayout);
+                activityViews = new ArrayList<>();
+                LinearLayout layout = (LinearLayout) findViewById(R.id.EditActivitiesLinearLayout);
                 layout.removeAllViews();
-                for (DataSnapshot skill : dataSnapshot.getChildren()) {
-                    TextView textView = new TextView(EditSkillsActivity.this);
-                    textView.setText(skill.getValue().toString());
+                for (DataSnapshot activity : dataSnapshot.getChildren()) {
+                    TextView textView = new TextView(EditActivitiesActivity.this);
+                    textView.setText(activity.getValue().toString());
                     textView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            onSkillClick(v);
+                            onActivityClick(v);
                         }
                     });
-                    skillViews.add(new Skill(skill.getKey(), textView));
+                    activityViews.add(new Activity(activity.getKey(), textView));
                 }
-                for (int i = 0; i < skillViews.size(); i++) {
-                    layout.addView(skillViews.get(i).getSkill(), i);
+                for (int i = 0; i < activityViews.size(); i++) {
+                    layout.addView(activityViews.get(i).getActivity(), i);
                 }
             }
 
@@ -81,15 +82,15 @@ public class EditSkillsActivity extends AppCompatActivity {
         });
     }
 
-    public void onSkillClick(final View view){
+    public void onActivityClick(final View view){
         new AlertDialog.Builder(this)
                 .setTitle("Delete entry")
-                .setMessage("Are you sure you want to delete this skill?")
+                .setMessage("Are you sure you want to delete this activity?")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        for(int i = 0; i<skillViews.size();i++){
-                            if(skillViews.get(i).getSkill() == view){
-                                Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/skills/" +skillViews.get(i).getId());
+                        for(int i = 0; i<activityViews.size();i++){
+                            if(activityViews.get(i).getActivity() == view){
+                                Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/activities/" +activityViews.get(i).getId());
                                 ref.removeValue();
                             }
                         }
@@ -105,8 +106,8 @@ public class EditSkillsActivity extends AppCompatActivity {
     }
 
     public void onSaveClick(View view){
-        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/skills");
-        EditText skill = (EditText) findViewById(R.id.EditSkillsTextNew);
-        ref.push().setValue(skill.getText().toString());
+        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/activities");
+        EditText activity = (EditText) findViewById(R.id.EditActivitiesTextNew);
+        ref.push().setValue(activity.getText().toString());
     }
 }

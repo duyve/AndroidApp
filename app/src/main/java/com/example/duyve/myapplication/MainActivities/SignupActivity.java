@@ -72,7 +72,7 @@ public class SignupActivity extends AppCompatActivity
                 map.put("city", "Place");
                 map.put("state", "IA");
                 map.put("phone", "999887777");
-                map.put("zip", "52002");
+                map.put("zipCode", "52002");
 
                 ref.child("users").child(id).child("header").setValue(map);
 

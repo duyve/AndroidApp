@@ -38,7 +38,7 @@ public class EditResumeActivity extends Activity {
         switch(view.getId()){
             case R.id.EditResumeButtonEditHeader:
                 request = ActivityCode.EDIT_HEADER;
-                intentClass = AboutActivity.class;
+                intentClass = EditHeaderActivity.class;
                 break;
             case R.id.EditResumeButtonEditEducation:
                 request = ActivityCode.EDIT_EDUCATION;
@@ -50,7 +50,7 @@ public class EditResumeActivity extends Activity {
                 break;
             case R.id.EditResumeButtonActivities:
                 request = ActivityCode.EDIT_ACTIVITIES;
-                intentClass = AboutActivity.class;
+                intentClass = EditActivitiesActivity.class;
                 break;
             case R.id.EditResumeButtonSkills:
                 request = ActivityCode.EDIT_SKILLS;
