@@ -52,7 +52,7 @@ public class EditHeaderActivity extends AppCompatActivity {
                     state.setSelection(spinnerPosition);
                 }
 
-                zipcode.setText(dataSnapshot.child("zipcode").getValue().toString());
+                zipcode.setText(dataSnapshot.child("zipCode").getValue().toString());
             }
 
             @Override
@@ -63,6 +63,24 @@ public class EditHeaderActivity extends AppCompatActivity {
     }
 
     public void onClickSave(View view){
+        EditText firstName = (EditText) findViewById(R.id.EditHeaderTextFirstName);
+        EditText lastName = (EditText) findViewById(R.id.EditHeaderTextLastName);
+        EditText email = (EditText) findViewById(R.id.EditHeaderTextEmail);
+        EditText phone = (EditText) findViewById(R.id.EditHeaderTextPhone);
+        EditText address = (EditText) findViewById(R.id.EditHeaderTextAddress);
+        EditText city = (EditText) findViewById(R.id.EditHeaderTextCity);
+        Spinner state = (Spinner) findViewById(R.id.EditHeaderSpinnerState);
+        EditText zipcode = (EditText) findViewById(R.id.EditHeaderTextZipcode);
 
+        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/header");
+        ref.child("firstName").setValue(firstName.getText().toString());
+        ref.child("lastName").setValue(lastName.getText().toString());
+        ref.child("email").setValue(email.getText().toString());
+        ref.child("phone").setValue(phone.getText().toString());
+        ref.child("address").setValue(address.getText().toString());
+        ref.child("city").setValue(city.getText().toString());
+        ref.child("state").setValue(state.getSelectedItem().toString());
+        ref.child("zipCode").setValue(zipcode.getText().toString());
+        finish();
     }
 }
