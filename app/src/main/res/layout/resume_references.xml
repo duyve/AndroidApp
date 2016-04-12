@@ -20,7 +20,9 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/EditReferencesLinearLayout"></LinearLayout>
+            android:id="@+id/EditReferencesLinearLayout">
+
+        </LinearLayout>
     </ScrollView>
 
     <ScrollView
@@ -75,9 +77,11 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit New Reference"
+        android:text="Save New Reference"
         android:id="@+id/EditReferencesButtonSubmit"
-        android:onClick="onSaveClick"/>
+        android:onClick="onSaveClick"
+        android:background="@drawable/button_selector"
+        android:textColor="@color/white"/>
 
 
 </LinearLayout>

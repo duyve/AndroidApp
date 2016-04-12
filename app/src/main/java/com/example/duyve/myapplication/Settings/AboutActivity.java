@@ -2,6 +2,7 @@ package com.example.duyve.myapplication.Settings;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.webkit.WebView;
 
 import com.example.duyve.myapplication.R;
 

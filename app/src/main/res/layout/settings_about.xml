@@ -94,14 +94,11 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
-        android:id="@+id/imageView"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
+        android:id="@+id/imageButton"
         android:src="@drawable/group"
-        android:maxHeight="2448px"
-        android:maxWidth="3264px"
+        android:scaleType="fitXY"
         android:layout_above="@+id/textView2"
-        android:layout_below="@+id/textView7" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="42dp" />
 
 </RelativeLayout>
