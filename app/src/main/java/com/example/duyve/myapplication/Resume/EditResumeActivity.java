@@ -153,7 +153,7 @@ public class EditResumeActivity extends Activity {
                 for (DataSnapshot reference : dataSnapshot.getChildren()) {
                     LinearLayout referenceLayout = new LinearLayout(EditResumeActivity.this);
                     referenceLayout.setOrientation(LinearLayout.VERTICAL);
-                    referenceLayout.setBackgroundColor(Color.WHITE);
+                    referenceLayout.setBackgroundColor(Color.TRANSPARENT);
 
                     TextView nameView = new TextView(EditResumeActivity.this);
                     nameView.setTextSize(20);
@@ -228,7 +228,7 @@ public class EditResumeActivity extends Activity {
                 for (DataSnapshot eduaction : dataSnapshot.getChildren()) {
                     LinearLayout eduactionLayout = new LinearLayout(EditResumeActivity.this);
                     eduactionLayout.setOrientation(LinearLayout.VERTICAL);
-                    eduactionLayout.setBackgroundColor(Color.WHITE);
+                    eduactionLayout.setBackgroundColor(Color.TRANSPARENT);
                     TextView nameView = new TextView(EditResumeActivity.this);
                     nameView.setTextSize(20);
                     nameView.setTextColor(Color.BLACK);
@@ -270,7 +270,7 @@ public class EditResumeActivity extends Activity {
                 for (DataSnapshot experience : dataSnapshot.getChildren()) {
                     LinearLayout experienceLayout = new LinearLayout(EditResumeActivity.this);
                     experienceLayout.setOrientation(LinearLayout.VERTICAL);
-                    experienceLayout.setBackgroundColor(Color.WHITE);
+                    experienceLayout.setBackgroundColor(Color.TRANSPARENT);
 
                     TextView nameView = new TextView(EditResumeActivity.this);
                     nameView.setTextSize(20);
