@@ -94,13 +94,13 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         android:id="@+id/imageView"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:src="@drawable/group"
-        android:maxHeight="2448dp"
-        android:maxWidth="3264dp"
+        android:maxHeight="2448px"
+        android:maxWidth="3264px"
         android:layout_above="@+id/textView2"
         android:layout_below="@+id/textView7" />
 
