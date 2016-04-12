@@ -79,6 +79,7 @@ public class LoginActivity extends AppCompatActivity
                     Toast.makeText(LoginActivity.this, "Logged in Successfully!", Toast.LENGTH_SHORT).show();
                     //Return to Parent call
                     finish();
+                    overridePendingTransition(R.anim.push_right_in, R.anim.push_left_out);
                 }
 
                 @Override
@@ -104,6 +105,7 @@ public class LoginActivity extends AppCompatActivity
         Intent intent = new Intent();
         setResult(RESULT_OK, intent);
         super.finish();
+        overridePendingTransition(R.anim.push_left_in, R.anim.push_right_out);
     }
 
     public Boolean isValidEmail(String email)
