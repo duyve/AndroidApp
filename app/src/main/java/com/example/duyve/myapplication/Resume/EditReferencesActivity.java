@@ -30,7 +30,7 @@ public class EditReferencesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.edit_resume_references);
+        setContentView(R.layout.resume_references);
         id = getIntent().getStringExtra("id");
 
         final Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/references");

@@ -33,7 +33,7 @@ public class EditResumeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.edit_resume);
+        setContentView(R.layout.resume);
         id = getIntent().getStringExtra("id");
         loadHeader();
         loadSkills();

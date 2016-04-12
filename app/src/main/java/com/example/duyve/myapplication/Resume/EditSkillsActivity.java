@@ -26,7 +26,7 @@ public class EditSkillsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.edit_resume_skills);
+        setContentView(R.layout.resume_skills);
         id = getIntent().getStringExtra("id");
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/skills");
         ref.addValueEventListener(new ValueEventListener() {

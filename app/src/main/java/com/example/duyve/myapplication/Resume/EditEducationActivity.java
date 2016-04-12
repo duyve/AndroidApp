@@ -30,7 +30,7 @@ public class EditEducationActivity extends AppCompatActivity {
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.edit_resume_education);
+        setContentView(R.layout.resume_education);
         id = getIntent().getStringExtra("id");
 
         final Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/education");

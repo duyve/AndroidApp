@@ -31,7 +31,7 @@ public class EditExperiencesActivity extends AppCompatActivity {
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.edit_resume_experiences);
+        setContentView(R.layout.resume_experiences);
         id = getIntent().getStringExtra("id");
 
         final Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/experiences");

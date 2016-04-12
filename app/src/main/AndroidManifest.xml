@@ -100,7 +100,7 @@
             android:name=".MainActivities.ForgotPasswordActivity"
             android:label="Write Your Password Down" />
         <activity android:name=".Resume.EditSkillsActivity" />
-        <activity android:name=".Resume.WebViewActivity" />
+        <activity android:name=".Resume.ViewResumeActivity" />
         <activity android:name=".Resume.EditActivitiesActivity" />
         <activity android:name=".Resume.EditHeaderActivity" />
         <activity android:name=".Resume.EditReferencesActivity" />

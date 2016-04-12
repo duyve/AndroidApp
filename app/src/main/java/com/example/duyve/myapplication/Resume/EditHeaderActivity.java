@@ -20,7 +20,7 @@ public class EditHeaderActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.edit_resume_header);
+        setContentView(R.layout.resume_header);
         id = getIntent().getStringExtra("id");
 
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/header");
