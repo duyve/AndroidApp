@@ -9,13 +9,11 @@ import com.example.duyve.myapplication.R;
 
 public class WebViewActivity extends AppCompatActivity{
 
-    private String id;
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         WebView webview = new WebView(this);
-        id= getIntent().getStringExtra("id");
+        String id = getIntent().getStringExtra("id");
         setContentView(webview);
         WebSettings s = webview.getSettings();
         s.setJavaScriptEnabled(true);

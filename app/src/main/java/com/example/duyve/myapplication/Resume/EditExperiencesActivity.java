@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.duyve.myapplication.Classes.FirebaseExperience;
 import com.example.duyve.myapplication.R;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -23,74 +24,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EditExperiencesActivity extends AppCompatActivity {
+
     private String id;
-    private ArrayList<Experience> experienceViews = new ArrayList<>();
-
-    private class Experience {
-        String id;
-        LinearLayout layout;
-        TextView companyName;
-        TextView position;
-        TextView durationLocation;
-        TextView info;
-
-        public Experience(String id, LinearLayout layout, TextView companyName, TextView position, TextView durationLocation, TextView info) {
-            this.id = id;
-            this.layout = layout;
-            this.companyName = companyName;
-            this.position = position;
-            this.durationLocation = durationLocation;
-            this.info = info;
-        }
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-
-        public LinearLayout getLayout() {
-            return layout;
-        }
-
-        public void setLayout(LinearLayout layout) {
-            this.layout = layout;
-        }
-
-        public TextView getCompanyName() {
-            return companyName;
-        }
-
-        public void setCompanyName(TextView companyName) {
-            this.companyName = companyName;
-        }
-
-        public TextView getPosition() {
-            return position;
-        }
-
-        public void setPosition(TextView position) {
-            this.position = position;
-        }
-
-        public TextView getDurationLocation() {
-            return durationLocation;
-        }
-
-        public void setDurationLocation(TextView durationLocation) {
-            this.durationLocation = durationLocation;
-        }
-
-        public TextView getInfo() {
-            return info;
-        }
-
-        public void setInfo(TextView info) {
-            this.info = info;
-        }
-    }
+    private ArrayList<FirebaseExperience> experienceViews = new ArrayList<>();
 
     @Override
     protected void onCreate (Bundle savedInstanceState){
@@ -124,7 +60,7 @@ public class EditExperiencesActivity extends AppCompatActivity {
                     TextView infoView = new TextView(EditExperiencesActivity.this);
 
                     nameView.setText(experience.child("name").getValue().toString());
-                    durationLoactionView.setText(experience.child("city").getValue().toString() + "," + experience.child("state").getValue().toString() + " | " + experience.child("startDate").getValue().toString() + "-" + experience.child("endDate").getValue().toString());
+                    durationLoactionView.setText(experience.child("city").getValue().toString() + ", " + experience.child("state").getValue().toString() + "  |  " + experience.child("startDate").getValue().toString() + "-" + experience.child("endDate").getValue().toString());
                     positionView.setText("Position: " + experience.child("position").getValue().toString());
                     infoView.setText(experience.child("info").getValue().toString());
 
@@ -134,7 +70,7 @@ public class EditExperiencesActivity extends AppCompatActivity {
                     experienceLayout.addView(infoView, 3);
 
 
-                    experienceViews.add(new Experience(experience.getKey(), experienceLayout, nameView, durationLoactionView, positionView, infoView));
+                    experienceViews.add(new FirebaseExperience(experience.getKey(), experienceLayout, nameView, durationLoactionView, positionView, infoView));
                 }
                 for (int i = 0; i < experienceViews.size(); i++) {
                     layout.addView(experienceViews.get(i).getLayout(), i);
@@ -146,7 +82,6 @@ public class EditExperiencesActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     public void onExperienceClick(View view) {

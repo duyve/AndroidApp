@@ -4,247 +4,171 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingStart="@dimen/activity_horizontal_margin"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".EditResume">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/header"
-            android:id="@+id/EditResumeTextHeaderTitle"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:id="@+id/EditResumeTextHeaderTitle" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/existingContent"
-            android:id="@+id/EditResumeTextHeaderInfo"
-            android:layout_below="@id/EditResumeTextHeaderTitle"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:orientation="vertical"
+            android:id="@+id/EditResumeLinearLayoutHeader"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/editHeader"
-            android:drawableLeft="@drawable/edit_pencil"
+            android:drawableStart="@drawable/edit_pencil"
             android:drawablePadding="7dp"
             android:id="@+id/EditResumeButtonEditHeader"
             android:onClick="onClick"
-            android:layout_below="@id/EditResumeTextHeaderInfo"
-            android:layout_centerHorizontal="true"
             android:background="@drawable/button_selector"
             android:textColor="@color/white"
-            android:paddingRight="15dp"
-            android:paddingLeft="5dp"/>
+            android:paddingEnd="15dp"
+            android:paddingStart="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/education"
-            android:id="@+id/EditResumeTextEducationTitle"
-            android:layout_below="@id/EditResumeButtonEditHeader"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:id="@+id/EditResumeTextEducationTitle" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/existingContent"
-            android:id="@+id/EditResumeTextEducationInfo"
-            android:layout_below="@id/EditResumeTextEducationTitle"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:orientation="vertical"
+            android:id="@+id/EditResumeLinearLayoutEducation" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/editEducation"
-            android:drawableLeft="@drawable/edit_pencil"
+            android:drawableStart="@drawable/edit_pencil"
             android:drawablePadding="7dp"
             android:id="@+id/EditResumeButtonEditEducation"
             android:onClick="onClick"
-            android:layout_below="@id/EditResumeTextEducationInfo"
-            android:layout_centerHorizontal="true"
             android:background="@drawable/button_selector"
             android:textColor="@color/white"
-            android:paddingRight="15dp"
-            android:paddingLeft="5dp"/>
+            android:paddingEnd="15dp"
+            android:paddingStart="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/workExperience"
-            android:id="@+id/EditResumeTextExperienceTitle"
-            android:layout_below="@+id/EditResumeButtonEditEducation"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:id="@+id/EditResumeTextExperienceTitle" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/existingContent"
-            android:id="@+id/EditResumeTextExperienceInfo"
-            android:layout_below="@+id/EditResumeTextExperienceTitle"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:orientation="vertical"
+            android:id="@+id/EditResumeLinearLayoutExperience" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/editWorkExperience"
-            android:drawableLeft="@drawable/edit_pencil"
+            android:drawableStart="@drawable/edit_pencil"
             android:drawablePadding="7dp"
             android:id="@+id/EditResumeButtonExperience"
             android:onClick="onClick"
-            android:layout_below="@+id/EditResumeTextExperienceInfo"
-            android:layout_centerHorizontal="true"
             android:background="@drawable/button_selector"
             android:textColor="@color/white"
-            android:paddingRight="15dp"
-            android:paddingLeft="5dp"/>
+            android:paddingEnd="15dp"
+            android:paddingStart="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/activities"
-            android:id="@+id/EditResumeTextActivitiesTitle"
-            android:layout_below="@+id/EditResumeButtonExperience"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:id="@+id/EditResumeTextActivitiesTitle" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/existingContent"
-            android:id="@+id/EditResumeTextActivitiesInfo"
-            android:layout_below="@+id/EditResumeTextActivitiesTitle"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/EditResumeTextExperienceInfo"
-            android:layout_alignEnd="@+id/EditResumeTextExperienceInfo" />
+            android:orientation="vertical"
+            android:id="@+id/EditResumeLinearLayoutActivities" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/editActivities"
-            android:drawableLeft="@drawable/edit_pencil"
+            android:drawableStart="@drawable/edit_pencil"
             android:drawablePadding="7dp"
             android:id="@+id/EditResumeButtonActivities"
             android:onClick="onClick"
-            android:layout_below="@+id/EditResumeTextActivitiesInfo"
-            android:layout_centerHorizontal="true"
             android:background="@drawable/button_selector"
             android:textColor="@color/white"
-            android:paddingRight="15dp"
-            android:paddingLeft="5dp"/>
+            android:paddingEnd="15dp"
+            android:paddingStart="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/skills"
-            android:id="@+id/EdtResumeTextSkillsTitle"
-            android:layout_below="@+id/EditResumeButtonActivities"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:id="@+id/EdtResumeTextSkillsTitle" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/existingContent"
-            android:id="@+id/EditReumeTextSkillsInfo"
-            android:layout_below="@+id/EdtResumeTextSkillsTitle"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:orientation="vertical"
+            android:id="@+id/EditResumeLinearLayoutSkills" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/editSkills"
-            android:drawableLeft="@drawable/edit_pencil"
+            android:drawableStart="@drawable/edit_pencil"
             android:drawablePadding="7dp"
             android:id="@+id/EditResumeButtonSkills"
             android:onClick="onClick"
-            android:layout_below="@+id/EditReumeTextSkillsInfo"
-            android:layout_centerHorizontal="true"
             android:background="@drawable/button_selector"
             android:textColor="@color/white"
-            android:paddingRight="15dp"
-            android:paddingLeft="5dp"/>
+            android:paddingEnd="15dp"
+            android:paddingStart="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="References"
-            android:id="@+id/EditResumeTextReferencesTitle"
-            android:layout_below="@+id/EditResumeButtonSkills"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:id="@+id/EditResumeTextReferencesTitle" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/existingContent"
-            android:id="@+id/EditResumeTextReferencesInfo"
-            android:layout_below="@+id/EditResumeTextReferencesTitle"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:orientation="vertical"
+            android:id="@+id/EditResumeLinearLayoutReferences" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edit References"
-            android:drawableLeft="@drawable/edit_pencil"
+            android:drawableStart="@drawable/edit_pencil"
             android:drawablePadding="7dp"
             android:id="@+id/EditResumeButtonReferences"
             android:onClick="onClick"
-            android:layout_below="@+id/EditResumeTextReferencesInfo"
-            android:layout_centerHorizontal="true"
             android:background="@drawable/button_selector"
             android:textColor="@color/white"
-            android:paddingRight="15dp"
-            android:paddingLeft="5dp"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/save"
-            android:drawableLeft="@drawable/save_icon"
-            android:drawablePadding="4dp"
-            android:id="@+id/EditResumeButtonSave"
-            android:layout_below="@+id/EditResumeButtonReferences"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/button_selector"
-            android:textColor="@color/white"
-            android:paddingRight="15dp"/>
-    </RelativeLayout>
+            android:paddingEnd="15dp"
+            android:paddingStart="5dp"/>
+    </LinearLayout>
 
 </ScrollView>

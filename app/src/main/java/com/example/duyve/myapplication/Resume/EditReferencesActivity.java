@@ -9,10 +9,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.duyve.myapplication.Classes.FireaseReference;
 import com.example.duyve.myapplication.R;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -26,73 +25,7 @@ import java.util.Map;
 public class EditReferencesActivity extends AppCompatActivity {
 
     private String id;
-    private ArrayList<Reference> referenceViews = new ArrayList<>();
-
-    private class Reference {
-        String id;
-        LinearLayout layout;
-        TextView name;
-        TextView relation;
-        TextView email;
-        TextView phone;
-
-        public Reference(String id, TextView phone, TextView email, TextView relation, TextView name, LinearLayout layout) {
-            this.id = id;
-            this.phone = phone;
-            this.email = email;
-            this.relation = relation;
-            this.name = name;
-            this.layout = layout;
-        }
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-
-        public TextView getPhone() {
-            return phone;
-        }
-
-        public void setPhone(TextView phone) {
-            this.phone = phone;
-        }
-
-        public TextView getEmail() {
-            return email;
-        }
-
-        public void setEmail(TextView email) {
-            this.email = email;
-        }
-
-        public TextView getRelation() {
-            return relation;
-        }
-
-        public void setRelation(TextView relation) {
-            this.relation = relation;
-        }
-
-        public TextView getName() {
-            return name;
-        }
-
-        public void setName(TextView name) {
-            this.name = name;
-        }
-
-        public LinearLayout getLayout() {
-            return layout;
-        }
-
-        public void setLayout(LinearLayout layout) {
-            this.layout = layout;
-        }
-    }
+    private ArrayList<FireaseReference> referenceViews = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,7 +69,7 @@ public class EditReferencesActivity extends AppCompatActivity {
                     referenceLayout.addView(phoneView,3);
 
 
-                    referenceViews.add(new Reference(reference.getKey(), nameView, relationView, emailView, phoneView, referenceLayout));
+                    referenceViews.add(new FireaseReference(reference.getKey(), nameView, relationView, emailView, phoneView, referenceLayout));
                 }
                 for (int i = 0; i < referenceViews.size(); i++) {
                     layout.addView(referenceViews.get(i).getLayout(), i);

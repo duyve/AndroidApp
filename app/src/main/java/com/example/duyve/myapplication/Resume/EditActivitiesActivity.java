@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.duyve.myapplication.Classes.FirebaseString;
 import com.example.duyve.myapplication.R;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -21,33 +22,7 @@ import java.util.ArrayList;
 
 public class EditActivitiesActivity extends AppCompatActivity {
     private String id;
-    private ArrayList<Activity> activityViews = new ArrayList<>();
-
-    private class Activity{
-        String id;
-        TextView activity;
-
-        public Activity(String id, TextView activity) {
-            this.id = id;
-            this.activity = activity;
-        }
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-
-        public TextView getActivity() {
-            return activity;
-        }
-
-        public void setActivity(TextView activity) {
-            this.activity = activity;
-        }
-    }
+    private ArrayList<FirebaseString> activityViews = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,10 +45,10 @@ public class EditActivitiesActivity extends AppCompatActivity {
                             onActivityClick(v);
                         }
                     });
-                    activityViews.add(new Activity(activity.getKey(), textView));
+                    activityViews.add(new FirebaseString(activity.getKey(), textView));
                 }
                 for (int i = 0; i < activityViews.size(); i++) {
-                    layout.addView(activityViews.get(i).getActivity(), i);
+                    layout.addView(activityViews.get(i).getTextview(), i);
                 }
             }
 
@@ -91,7 +66,7 @@ public class EditActivitiesActivity extends AppCompatActivity {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         for(int i = 0; i<activityViews.size();i++){
-                            if(activityViews.get(i).getActivity() == view){
+                            if(activityViews.get(i).getTextview() == view){
                                 Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/activities/" +activityViews.get(i).getId());
                                 ref.removeValue();
                             }

@@ -121,9 +121,9 @@ public class SignupActivity extends AppCompatActivity
                 for(int i = 1; i< 4; i++ ){
                     map.clear();
                     map.put("name", "Reference " + i);
-                    map.put("relation", "Old Boss" + i);
+                    map.put("relation", "Old Boss " + i);
                     map.put("email", "example@gmail.com");
-                    map.put("phone", "City " + i);
+                    map.put("phone", "999-999-9999");
                     //ADD INFORMATION TO USER
                     ref.child("users").child(id).child("references").push().setValue(map);
                 }

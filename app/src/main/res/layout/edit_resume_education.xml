@@ -8,20 +8,19 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.duyve.myapplication.Resume.EditExperiencesActivity"
-    android:id="@+id/EditExperiencesRootLinearLayout">
+    tools:context="com.example.duyve.myapplication.Resume.EditEducationActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/EditExperiencesScrollViewEntries"
+        android:id="@+id/EditEducationScrollViewEntries"
         android:layout_weight="1">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/EditExperiencesLinearLayout"/>
+            android:id="@+id/EditEducationLinearLayout"/>
 
     </ScrollView>
 
@@ -29,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/EditExperiencesScrollViewInput">
+        android:id="@+id/EditEducationScrollViewInput">
 
 
         <LinearLayout
@@ -41,17 +40,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Company Name"
+                android:hint="School Name"
                 android:ems="10"
-                android:id="@+id/EditExperiencesTextName" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="Position"
-                android:ems="10"
-                android:id="@+id/EditExperiencesTextPosition" />
+                android:id="@+id/EditEducationTextName" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -59,7 +50,7 @@
                 android:inputType="date"
                 android:hint="Start Date"
                 android:ems="10"
-                android:id="@+id/EditExperiencesTextStartDate" />
+                android:id="@+id/EditEducationTextStartDate" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -67,7 +58,7 @@
                 android:inputType="date"
                 android:hint="End Date"
                 android:ems="10"
-                android:id="@+id/EditExperiencesTextEndDate" />
+                android:id="@+id/EditEducationTextEndDate" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -75,12 +66,12 @@
                 android:inputType="text"
                 android:hint="City"
                 android:ems="10"
-                android:id="@+id/EditExperiencesTextCity" />
+                android:id="@+id/EditEducationTextCity" />
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/EditExperiencesSpinnerState"
+                android:id="@+id/EditEducationSpinnerState"
                 android:layout_gravity="center_horizontal"
                 android:spinnerMode="dropdown"
                 android:entries="@array/states" />
@@ -91,7 +82,7 @@
                 android:inputType="textLongMessage"
                 android:hint="Info"
                 android:ems="10"
-                android:id="@+id/EditExperiencesTextInfo" />
+                android:id="@+id/EditEducationTextInfo" />
 
 
         </LinearLayout>

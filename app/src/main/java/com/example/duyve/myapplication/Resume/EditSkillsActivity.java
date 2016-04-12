@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.duyve.myapplication.Classes.FirebaseString;
 import com.example.duyve.myapplication.R;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -20,33 +21,7 @@ import java.util.ArrayList;
 
 public class EditSkillsActivity extends AppCompatActivity {
     private String id;
-    private ArrayList<Skill> skillViews = new ArrayList<>();
-
-    private class Skill{
-        String id;
-        TextView skill;
-
-        public Skill(String id, TextView skill) {
-            this.id = id;
-            this.skill = skill;
-        }
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-
-        public TextView getSkill() {
-            return skill;
-        }
-
-        public void setSkill(TextView skill) {
-            this.skill = skill;
-        }
-    }
+    private ArrayList<FirebaseString> skillViews = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +44,10 @@ public class EditSkillsActivity extends AppCompatActivity {
                             onSkillClick(v);
                         }
                     });
-                    skillViews.add(new Skill(skill.getKey(), textView));
+                    skillViews.add(new FirebaseString(skill.getKey(), textView));
                 }
                 for (int i = 0; i < skillViews.size(); i++) {
-                    layout.addView(skillViews.get(i).getSkill(), i);
+                    layout.addView(skillViews.get(i).getTextview(), i);
                 }
             }
 
@@ -90,7 +65,7 @@ public class EditSkillsActivity extends AppCompatActivity {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         for(int i = 0; i<skillViews.size();i++){
-                            if(skillViews.get(i).getSkill() == view){
+                            if(skillViews.get(i).getTextview() == view){
                                 Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/skills/" +skillViews.get(i).getId());
                                 ref.removeValue();
                             }
