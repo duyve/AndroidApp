@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity
     {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivityForResult(intent, ActivityCode.LOG_IN);
+        overridePendingTransition(R.anim.push_right_in, R.anim.push_left_out);
     }
 
     public void onClickSignup(View view)
