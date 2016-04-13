@@ -29,6 +29,7 @@ public class EditHeaderActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 EditText firstName = (EditText) findViewById(R.id.EditHeaderTextFirstName);
                 EditText lastName = (EditText) findViewById(R.id.EditHeaderTextLastName);
+                EditText careerTitle = (EditText) findViewById(R.id.EditHeaderTextCareerTitle);
                 EditText email = (EditText) findViewById(R.id.EditHeaderTextEmail);
                 EditText phone = (EditText) findViewById(R.id.EditHeaderTextPhone);
                 EditText address = (EditText) findViewById(R.id.EditHeaderTextAddress);
@@ -38,6 +39,7 @@ public class EditHeaderActivity extends AppCompatActivity {
 
                 firstName.setText(dataSnapshot.child("firstName").getValue().toString());
                 lastName.setText(dataSnapshot.child("lastName").getValue().toString());
+                careerTitle.setText(dataSnapshot.child("careerTitle").getValue().toString());
                 email.setText(dataSnapshot.child("email").getValue().toString());
                 phone.setText(dataSnapshot.child("phone").getValue().toString());
                 address.setText(dataSnapshot.child("address").getValue().toString());
@@ -65,6 +67,7 @@ public class EditHeaderActivity extends AppCompatActivity {
     public void onClickSave(View view){
         EditText firstName = (EditText) findViewById(R.id.EditHeaderTextFirstName);
         EditText lastName = (EditText) findViewById(R.id.EditHeaderTextLastName);
+        EditText careerTitle = (EditText) findViewById(R.id.EditHeaderTextCareerTitle);
         EditText email = (EditText) findViewById(R.id.EditHeaderTextEmail);
         EditText phone = (EditText) findViewById(R.id.EditHeaderTextPhone);
         EditText address = (EditText) findViewById(R.id.EditHeaderTextAddress);
@@ -75,6 +78,7 @@ public class EditHeaderActivity extends AppCompatActivity {
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/header");
         ref.child("firstName").setValue(firstName.getText().toString());
         ref.child("lastName").setValue(lastName.getText().toString());
+        ref.child("careerTitle").setValue(careerTitle.getText().toString());
         ref.child("email").setValue(email.getText().toString());
         ref.child("phone").setValue(phone.getText().toString());
         ref.child("address").setValue(address.getText().toString());

@@ -2,10 +2,12 @@ package com.example.duyve.myapplication;
 //Standard Android imports
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.duyve.myapplication.Classes.ActivityCode;
 import com.example.duyve.myapplication.MainActivities.LoginActivity;
@@ -22,6 +24,9 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        TextView view = (TextView)findViewById(R.id.textView);
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/GrutchShaded.ttf");
+        view.setTypeface(face);
         Firebase.setAndroidContext(getApplicationContext());
 
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");

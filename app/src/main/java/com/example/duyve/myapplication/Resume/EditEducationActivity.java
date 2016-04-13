@@ -107,7 +107,7 @@ public class EditEducationActivity extends AppCompatActivity {
     }
 
     public void onSaveClick(View view) {
-        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/eduactions");
+        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/eduaction");
 
         EditText eduactionName = (EditText) findViewById(R.id.EditEducationTextName);
         EditText eduactionStartDate = (EditText) findViewById(R.id.EditEducationTextStartDate);
