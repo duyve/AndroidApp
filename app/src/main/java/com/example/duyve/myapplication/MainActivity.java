@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -25,8 +26,13 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         TextView view = (TextView)findViewById(R.id.textView);
+        Button login = (Button)findViewById(R.id.logInButton);
+        Button signup = (Button)findViewById(R.id.signUpButton);
         Typeface face = Typeface.createFromAsset(getAssets(), "fonts/GrutchShaded.ttf");
+        Typeface main = Typeface.createFromAsset(getAssets(), "fonts/Champagne & Limousines Bold.ttf");
         view.setTypeface(face);
+        login.setTypeface(main);
+        signup.setTypeface(main);
         Firebase.setAndroidContext(getApplicationContext());
 
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
