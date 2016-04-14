@@ -12,11 +12,9 @@
     #   We aren't actually using this yet.                                  #
     ######################################################################
     -->
-    <!--
- <uses-sdk
-            android:minSdkVersion="16"
-            android:targetSdkVersion="19" />
-    -->
+ <!--<uses-sdk-->
+            <!--android:minSdkVersion="16"-->
+            <!--android:targetSdkVersion="23" />-->
     <!--
     #####################################################################
     #   Configuration:                                                      #
