@@ -1,9 +1,11 @@
 package com.example.duyve.myapplication.MainActivities;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.duyve.myapplication.Classes.ActivityCode;
 import com.example.duyve.myapplication.R;
@@ -22,6 +24,15 @@ public class MainMenuActivity extends AppCompatActivity {
         setContentView(R.layout.main_menu);
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
         id = ref.getAuth().getUid();
+        Typeface main = Typeface.createFromAsset(getAssets(), "fonts/Champagne & Limousines Bold.ttf");
+
+        Button edit = (Button)findViewById(R.id.MainMenuButtonEditResume);
+        Button view = (Button)findViewById(R.id.MainMenuButtonViewResume);
+        Button settings = (Button)findViewById(R.id.MainMenuButtonSettings);
+
+        edit.setTypeface(main);
+        view.setTypeface(main);
+        settings.setTypeface(main);
     }
 
 
@@ -35,6 +46,7 @@ public class MainMenuActivity extends AppCompatActivity {
         Intent i = new Intent(this, ViewResumeActivity.class);
         i.putExtra("id", id);
         startActivity(i);
+        overridePendingTransition(R.anim.push_right_in, R.anim.push_left_out);
     }
 
     public void onSettingsClick(View view){

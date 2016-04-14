@@ -1,12 +1,15 @@
 package com.example.duyve.myapplication.MainActivities;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.duyve.myapplication.Classes.ActivityCode;
@@ -27,6 +30,19 @@ public class LoginActivity extends AppCompatActivity
         setContentView(R.layout.main_login);
         emailView = (EditText) findViewById(R.id.LoginTextEmail);
         passwordView = (EditText) findViewById(R.id.LoginTextPassword);
+        Typeface main = Typeface.createFromAsset(getAssets(), "fonts/Champagne & Limousines Bold.ttf");
+
+        EditText email = (EditText)findViewById(R.id.LoginTextEmail);
+        EditText password = (EditText)findViewById(R.id.LoginTextPassword);
+        Button login = (Button)findViewById(R.id.LoginButtonSubmit);
+        TextView forgot = (TextView)findViewById(R.id.LoginTextForgotPassword);
+        TextView signup = (TextView)findViewById(R.id.LoginTextSignup);
+
+        email.setTypeface(main);
+        password.setTypeface(main);
+        login.setTypeface(main);
+        forgot.setTypeface(main);
+        signup.setTypeface(main);
     }
 
     public void switchToForgot(View view){
@@ -105,7 +121,6 @@ public class LoginActivity extends AppCompatActivity
         Intent intent = new Intent();
         setResult(RESULT_OK, intent);
         super.finish();
-        overridePendingTransition(R.anim.push_left_in, R.anim.push_right_out);
     }
 
     public Boolean isValidEmail(String email)

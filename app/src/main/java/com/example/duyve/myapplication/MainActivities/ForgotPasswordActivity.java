@@ -1,9 +1,11 @@
 package com.example.duyve.myapplication.MainActivities;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,7 +21,13 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_forgot);
+        Typeface main = Typeface.createFromAsset(getAssets(), "fonts/Champagne & Limousines Bold.ttf");
         emailView = (EditText) findViewById(R.id.EnterEmail);
+        EditText email = (EditText)findViewById(R.id.EnterEmail);
+        Button password = (Button)findViewById(R.id.GetPassword);
+
+        email.setTypeface(main);
+        password.setTypeface(main);
     }
 
     public void getNewPassword(View view){
