@@ -39,14 +39,14 @@ public class SettingsActivity extends AppCompatActivity {
     {
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
         ref.unauth();
+        Intent i  = new Intent();
+        setResult(RESULT_OK, i);
         finish();
     }
 
     @Override
     public void finish()
     {
-        Intent i  = new Intent();
-        setResult(RESULT_OK , i);
         super.finish();
     }
 }

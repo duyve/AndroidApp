@@ -38,6 +38,18 @@ public class MainActivity extends AppCompatActivity
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
 
         if (ref.getAuth() != null){
+            //Create authlistener that will go to login page upon losing authorization
+            ref.addAuthStateListener(new Firebase.AuthStateListener() {
+                @Override
+                public void onAuthStateChanged(AuthData authData) {
+                    if(authData == null){
+                        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/");
+                        ref.removeAuthStateListener(this);
+                        Intent mainScreen = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(mainScreen);
+                    }
+                }
+            });
             Intent mainMenu = new Intent(this, MainMenuActivity.class);
             startActivity(mainMenu);
             finish();

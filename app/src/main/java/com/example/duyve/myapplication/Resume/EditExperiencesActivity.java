@@ -94,6 +94,7 @@ public class EditExperiencesActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     for (int i = 0; i < experienceViews.size(); i++) {
                         if (experienceViews.get(i).getLayout() == layout) {
+                            layout.setAlpha((float) 0.5);
                             Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/experiences/" + experienceViews.get(i).getId());
                             ref.removeValue();
                         }
@@ -120,7 +121,7 @@ public class EditExperiencesActivity extends AppCompatActivity {
         EditText experienceInfo = (EditText) findViewById(R.id.EditExperiencesTextInfo);
         Spinner experienceState = (Spinner) findViewById(R.id.EditExperiencesSpinnerState);
         EditText[] arr = {experienceName, experiencePosition, experienceCity, experienceStartDate, experienceEndDate, experienceInfo};
-        //Check to make sue they are not empty
+        //Check to make sure they are not empty
         for (EditText text : arr) {
             if (TextUtils.isEmpty(text.getText().toString())) {
                 return;

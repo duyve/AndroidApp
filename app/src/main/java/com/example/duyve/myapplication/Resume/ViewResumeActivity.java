@@ -37,7 +37,7 @@ public class ViewResumeActivity extends AppCompatActivity{
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
             intent.putExtra(Intent.EXTRA_TEXT, "https://sizzling-torch-8367.firebaseapp.com?username=" + id);
-            intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Check out my Resume!");
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Check out my Resume!");
             startActivity(Intent.createChooser(intent, "Share"));
             return true;
     }

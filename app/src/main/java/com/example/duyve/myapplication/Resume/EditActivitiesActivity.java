@@ -67,6 +67,7 @@ public class EditActivitiesActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         for(int i = 0; i<activityViews.size();i++){
                             if(activityViews.get(i).getTextview() == view){
+                                view.setAlpha((float) 0.5);
                                 Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/activities/" +activityViews.get(i).getId());
                                 ref.removeValue();
                             }

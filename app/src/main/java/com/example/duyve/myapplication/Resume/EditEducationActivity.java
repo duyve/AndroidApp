@@ -91,6 +91,7 @@ public class EditEducationActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         for (int i = 0; i < eduactionViews.size(); i++) {
                             if (eduactionViews.get(i).getLayout() == layout) {
+                                layout.setAlpha((float) 0.5);
                                 Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/education/" + eduactionViews.get(i).getId());
                                 ref.removeValue();
                             }
@@ -107,7 +108,7 @@ public class EditEducationActivity extends AppCompatActivity {
     }
 
     public void onSaveClick(View view) {
-        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/eduaction");
+        Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/education");
 
         EditText eduactionName = (EditText) findViewById(R.id.EditEducationTextName);
         EditText eduactionStartDate = (EditText) findViewById(R.id.EditEducationTextStartDate);

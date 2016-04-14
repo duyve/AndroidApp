@@ -86,7 +86,6 @@ public class EditReferencesActivity extends AppCompatActivity {
 
     public void onReferenceClick(View view){
         final LinearLayout layout = (LinearLayout) view;
-
         new AlertDialog.Builder(this)
                 .setTitle("Delete entry")
                 .setMessage("Are you sure you want to delete this reference?")
@@ -94,6 +93,7 @@ public class EditReferencesActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         for(int i = 0; i<referenceViews.size();i++){
                             if(referenceViews.get(i).getLayout() == layout){
+                                layout.setAlpha((float) 0.5);
                                 Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/references/" +referenceViews.get(i).getId());
                                 ref.removeValue();
                             }
@@ -102,7 +102,6 @@ public class EditReferencesActivity extends AppCompatActivity {
                 })
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        // do nothing
                     }
                 })
                 .setIcon(android.R.drawable.ic_dialog_alert)

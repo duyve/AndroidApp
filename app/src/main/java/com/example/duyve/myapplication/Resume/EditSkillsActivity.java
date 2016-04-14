@@ -66,6 +66,7 @@ public class EditSkillsActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         for(int i = 0; i<skillViews.size();i++){
                             if(skillViews.get(i).getTextview() == view){
+                                view.setAlpha((float) 0.5);
                                 Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/skills/" +skillViews.get(i).getId());
                                 ref.removeValue();
                             }
