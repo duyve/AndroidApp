@@ -23,6 +23,7 @@ import java.util.ArrayList;
 public class EditActivitiesActivity extends AppCompatActivity {
     private String id;
     private ArrayList<FirebaseString> activityViews = new ArrayList<>();
+    private FirebaseString selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +88,7 @@ public class EditActivitiesActivity extends AppCompatActivity {
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/activities");
         EditText activity = (EditText) findViewById(R.id.EditActivitiesTextNew);
         if(!TextUtils.isEmpty(activity.getText().toString())){
+            if(selected == null)
             Toast.makeText(EditActivitiesActivity.this, "Added Skill Successfully!", Toast.LENGTH_SHORT).show();
             ref.push().setValue(activity.getText().toString());
             activity.setText("");

@@ -173,6 +173,8 @@ public class SignupActivity extends AppCompatActivity
                 @Override
                 public void onSuccess(Map<String, Object> result) {
                     Toast.makeText(SignupActivity.this, "Created Successfully!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
                     //Log in after creating account
                     loginAfterSignup(email, password);
                 }
@@ -194,8 +196,6 @@ public class SignupActivity extends AppCompatActivity
 
     @Override
     public void finish(){
-        Intent intent = new Intent();
-        setResult(RESULT_OK, intent);
         super.finish();
     }
 

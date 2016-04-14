@@ -93,6 +93,8 @@ public class LoginActivity extends AppCompatActivity
                 @Override
                 public void onAuthenticated(AuthData authData) {
                     Toast.makeText(LoginActivity.this, "Logged in Successfully!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
                     //Return to Parent call
                     finish();
                     overridePendingTransition(R.anim.push_right_in, R.anim.push_left_out);
@@ -118,8 +120,6 @@ public class LoginActivity extends AppCompatActivity
 
     @Override
     public void finish(){
-        Intent intent = new Intent();
-        setResult(RESULT_OK, intent);
         super.finish();
     }
 
