@@ -7,11 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.duyve.myapplication.Classes.FirebaseEducation;
 import com.example.duyve.myapplication.Classes.FirebaseExperience;
 import com.example.duyve.myapplication.R;
 import com.firebase.client.DataSnapshot;
@@ -27,11 +30,28 @@ public class EditExperiencesActivity extends AppCompatActivity {
 
     private String id;
     private ArrayList<FirebaseExperience> experienceViews = new ArrayList<>();
+    private FirebaseExperience selected;
+    private EditText experienceName;
+    private EditText experiencePosition;
+    private EditText experienceStartDate;
+    private EditText experienceEndDate;
+    private EditText experienceCity;
+    private EditText experienceInfo;
+    private Spinner experienceState;
+    private Button submit;
 
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resume_experiences);
+        experienceName = (EditText) findViewById(R.id.EditExperiencesTextName);
+        experiencePosition = (EditText) findViewById(R.id.EditExperiencesTextPosition);
+        experienceStartDate = (EditText) findViewById(R.id.EditExperiencesTextStartDate);
+        experienceEndDate = (EditText) findViewById(R.id.EditExperiencesTextEndDate);
+        experienceCity = (EditText) findViewById(R.id.EditExperiencesTextCity);
+        experienceInfo = (EditText) findViewById(R.id.EditExperiencesTextInfo);
+        experienceState = (Spinner) findViewById(R.id.EditExperiencesSpinnerState);
+        submit = (Button) findViewById(R.id.EditExperiencesButtonSave);
         id = getIntent().getStringExtra("id");
 
         final Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/experiences");
@@ -42,35 +62,33 @@ public class EditExperiencesActivity extends AppCompatActivity {
                 LinearLayout layout = (LinearLayout) findViewById(R.id.EditExperiencesLinearLayout);
                 layout.removeAllViews();
                 for (DataSnapshot experience : dataSnapshot.getChildren()) {
-                    LinearLayout experienceLayout = new LinearLayout(EditExperiencesActivity.this);
-                    experienceLayout.setOrientation(LinearLayout.VERTICAL);
-                    experienceLayout.setBackgroundColor(Color.WHITE);
-                    experienceLayout.setOnClickListener(new View.OnClickListener() {
+
+                    FirebaseExperience exp = new FirebaseExperience(
+                            EditExperiencesActivity.this,
+                            experience.getKey(),
+                            experience.child("position").getValue().toString(),
+                            experience.child("name").getValue().toString(),
+                            experience.child("startDate").getValue().toString(),
+                            experience.child("endDate").getValue().toString(),
+                            experience.child("city").getValue().toString(),
+                            experience.child("state").getValue().toString(),
+                            experience.child("info").getValue().toString());
+
+                    exp.getLayout().setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             onExperienceClick(v);
                         }
                     });
 
-                    TextView nameView = new TextView(EditExperiencesActivity.this);
-                    nameView.setTextSize(20);
-                    nameView.setTextColor(Color.BLACK);
-                    TextView positionView = new TextView(EditExperiencesActivity.this);
-                    TextView durationLoactionView = new TextView(EditExperiencesActivity.this);
-                    TextView infoView = new TextView(EditExperiencesActivity.this);
-
-                    nameView.setText(experience.child("name").getValue().toString());
-                    durationLoactionView.setText(experience.child("city").getValue().toString() + ", " + experience.child("state").getValue().toString() + "  |  " + experience.child("startDate").getValue().toString() + "-" + experience.child("endDate").getValue().toString());
-                    positionView.setText("Position: " + experience.child("position").getValue().toString());
-                    infoView.setText(experience.child("info").getValue().toString());
-
-                    experienceLayout.addView(nameView, 0);
-                    experienceLayout.addView(durationLoactionView, 1);
-                    experienceLayout.addView(positionView, 2);
-                    experienceLayout.addView(infoView, 3);
-
-
-                    experienceViews.add(new FirebaseExperience(experience.getKey(), experienceLayout, nameView, durationLoactionView, positionView, infoView));
+                    exp.getLayout().setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            onExperienceLongClick(v);
+                            return true;
+                        }
+                    });
+                    experienceViews.add(exp);
                 }
                 for (int i = 0; i < experienceViews.size(); i++) {
                     layout.addView(experienceViews.get(i).getLayout(), i);
@@ -84,7 +102,32 @@ public class EditExperiencesActivity extends AppCompatActivity {
         });
     }
 
-    public void onExperienceClick(View view) {
+    public void onExperienceClick(View view){
+        submit.setText("Edit Education");
+        for(int i = 0; i<experienceViews.size();i++){
+            if(experienceViews.get(i).getLayout() == view){
+                selected = experienceViews.get(i);
+            }
+        }
+        experienceName.setText(selected.getCompanyName());
+        experiencePosition.setText(selected.getPosition());
+        experienceStartDate.setText(selected.getStartDate());
+        experienceEndDate.setText(selected.getEndDate());
+        experienceCity.setText(selected.getCity());
+        experienceInfo.setText(selected.getInfo());
+
+        //Get the state Spinner to automatically select state
+        String compareValue = selected.getState();
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(EditExperiencesActivity.this, R.array.states, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        experienceState.setAdapter(adapter);
+        if (!compareValue.equals(null)) {
+            int spinnerPosition = adapter.getPosition(compareValue);
+            experienceState.setSelection(spinnerPosition);
+        }
+    }
+
+    public void onExperienceLongClick(View view) {
     final LinearLayout layout = (LinearLayout) view;
 
     new AlertDialog.Builder(this)
@@ -113,13 +156,6 @@ public class EditExperiencesActivity extends AppCompatActivity {
     public void onSaveClick(View view) {
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/experiences");
 
-        EditText experienceName = (EditText) findViewById(R.id.EditExperiencesTextName);
-        EditText experiencePosition = (EditText) findViewById(R.id.EditExperiencesTextPosition);
-        EditText experienceStartDate = (EditText) findViewById(R.id.EditExperiencesTextStartDate);
-        EditText experienceEndDate = (EditText) findViewById(R.id.EditExperiencesTextEndDate);
-        EditText experienceCity = (EditText) findViewById(R.id.EditExperiencesTextCity);
-        EditText experienceInfo = (EditText) findViewById(R.id.EditExperiencesTextInfo);
-        Spinner experienceState = (Spinner) findViewById(R.id.EditExperiencesSpinnerState);
         EditText[] arr = {experienceName, experiencePosition, experienceCity, experienceStartDate, experienceEndDate, experienceInfo};
         //Check to make sure they are not empty
         for (EditText text : arr) {
@@ -136,7 +172,14 @@ public class EditExperiencesActivity extends AppCompatActivity {
         map.put("state", experienceState.getSelectedItem().toString());
         map.put("info", experienceInfo.getText().toString());
 
-        ref.push().setValue(map);
+        if(selected == null){
+            ref.push().setValue(map);
+        }
+        else {
+            ref.child(selected.getId()).setValue(map);
+            submit.setText("Save new experience");
+            selected = null;
+        }
         for (EditText text : arr) {
             text.setText("");
         }

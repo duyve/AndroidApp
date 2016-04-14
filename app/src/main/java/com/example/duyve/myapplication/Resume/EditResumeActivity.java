@@ -1,9 +1,9 @@
 package com.example.duyve.myapplication.Resume;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,7 +12,7 @@ import com.example.duyve.myapplication.Classes.ActivityCode;
 import com.example.duyve.myapplication.Classes.FirebaseEducation;
 import com.example.duyve.myapplication.Classes.FirebaseExperience;
 import com.example.duyve.myapplication.Classes.FirebaseString;
-import com.example.duyve.myapplication.Classes.FireaseReference;
+import com.example.duyve.myapplication.Classes.FirebaseReference;
 import com.example.duyve.myapplication.R;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -21,11 +21,11 @@ import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class EditResumeActivity extends Activity {
+public class EditResumeActivity extends AppCompatActivity {
     private String id;
     private ArrayList<FirebaseEducation> eduactionViews;
     private ArrayList<FirebaseExperience> experienceViews;
-    private ArrayList<FireaseReference> referenceViews;
+    private ArrayList<FirebaseReference> referenceViews;
     private ArrayList<FirebaseString> skillViews;
     private ArrayList<FirebaseString> activityViews;
 
@@ -151,29 +151,14 @@ public class EditResumeActivity extends Activity {
                 LinearLayout layout = (LinearLayout) findViewById(R.id.EditResumeLinearLayoutReferences);
                 layout.removeAllViews();
                 for (DataSnapshot reference : dataSnapshot.getChildren()) {
-                    LinearLayout referenceLayout = new LinearLayout(EditResumeActivity.this);
-                    referenceLayout.setOrientation(LinearLayout.VERTICAL);
-                    referenceLayout.setBackgroundColor(Color.TRANSPARENT);
-
-                    TextView nameView = new TextView(EditResumeActivity.this);
-                    nameView.setTextSize(20);
-                    nameView.setTextColor(Color.BLACK);
-                    TextView relationView = new TextView(EditResumeActivity.this);
-                    TextView emailView = new TextView(EditResumeActivity.this);
-                    TextView phoneView = new TextView(EditResumeActivity.this);
-
-                    nameView.setText(reference.child("name").getValue().toString());
-                    relationView.setText("Relation: " + reference.child("relation").getValue().toString());
-                    emailView.setText("Email: " + reference.child("email").getValue().toString());
-                    phoneView.setText("Phone: " + reference.child("phone").getValue().toString());
-
-                    referenceLayout.addView(nameView, 0);
-                    referenceLayout.addView(relationView, 1);
-                    referenceLayout.addView(emailView, 2);
-                    referenceLayout.addView(phoneView,3);
-
-
-                    referenceViews.add(new FireaseReference(reference.getKey(), nameView, relationView, emailView, phoneView, referenceLayout));
+                    FirebaseReference ref = new FirebaseReference(
+                            EditResumeActivity.this,
+                            reference.getKey(),
+                            reference.child("name").getValue().toString(),
+                            reference.child("phone").getValue().toString(),
+                            reference.child("email").getValue().toString(),
+                            reference.child("relation").getValue().toString());
+                    referenceViews.add(ref);
                 }
                 for (int i = 0; i < referenceViews.size(); i++) {
                     layout.addView(referenceViews.get(i).getLayout(), i);
@@ -225,26 +210,16 @@ public class EditResumeActivity extends Activity {
                 eduactionViews = new ArrayList<>();
                 LinearLayout layout = (LinearLayout) findViewById(R.id.EditResumeLinearLayoutEducation);
                 layout.removeAllViews();
-                for (DataSnapshot eduaction : dataSnapshot.getChildren()) {
-                    LinearLayout eduactionLayout = new LinearLayout(EditResumeActivity.this);
-                    eduactionLayout.setOrientation(LinearLayout.VERTICAL);
-                    eduactionLayout.setBackgroundColor(Color.TRANSPARENT);
-                    TextView nameView = new TextView(EditResumeActivity.this);
-                    nameView.setTextSize(20);
-                    nameView.setTextColor(Color.BLACK);
-                    TextView durationLoactionView = new TextView(EditResumeActivity.this);
-                    TextView infoView = new TextView(EditResumeActivity.this);
-
-                    nameView.setText(eduaction.child("name").getValue().toString());
-                    durationLoactionView.setText(eduaction.child("city").getValue().toString() + ", " + eduaction.child("state").getValue().toString() + "  |  " + eduaction.child("startDate").getValue().toString() + "-" + eduaction.child("endDate").getValue().toString());
-                    infoView.setText(eduaction.child("info").getValue().toString());
-
-                    eduactionLayout.addView(nameView, 0);
-                    eduactionLayout.addView(durationLoactionView, 1);
-                    eduactionLayout.addView(infoView, 2);
-
-
-                    eduactionViews.add(new FirebaseEducation(eduaction.getKey(), eduactionLayout, nameView, durationLoactionView, infoView));
+                for (DataSnapshot education : dataSnapshot.getChildren()) {
+                    eduactionViews.add(new FirebaseEducation(
+                            EditResumeActivity.this,
+                            education.getKey(),
+                            education.child("name").getValue().toString(),
+                            education.child("startDate").getValue().toString(),
+                            education.child("endDate").getValue().toString(),
+                            education.child("city").getValue().toString(),
+                            education.child("state").getValue().toString(),
+                            education.child("info").getValue().toString()));
                 }
                 for (int i = 0; i < eduactionViews.size(); i++) {
                     layout.addView(eduactionViews.get(i).getLayout(), i);
@@ -268,29 +243,17 @@ public class EditResumeActivity extends Activity {
                 LinearLayout layout = (LinearLayout) findViewById(R.id.EditResumeLinearLayoutExperience);
                 layout.removeAllViews();
                 for (DataSnapshot experience : dataSnapshot.getChildren()) {
-                    LinearLayout experienceLayout = new LinearLayout(EditResumeActivity.this);
-                    experienceLayout.setOrientation(LinearLayout.VERTICAL);
-                    experienceLayout.setBackgroundColor(Color.TRANSPARENT);
-
-                    TextView nameView = new TextView(EditResumeActivity.this);
-                    nameView.setTextSize(20);
-                    nameView.setTextColor(Color.BLACK);
-                    TextView positionView = new TextView(EditResumeActivity.this);
-                    TextView durationLoactionView = new TextView(EditResumeActivity.this);
-                    TextView infoView = new TextView(EditResumeActivity.this);
-
-                    nameView.setText(experience.child("name").getValue().toString());
-                    durationLoactionView.setText(experience.child("city").getValue().toString() + ", " + experience.child("state").getValue().toString() + "  |  " + experience.child("startDate").getValue().toString() + "-" + experience.child("endDate").getValue().toString());
-                    positionView.setText("Position: " + experience.child("position").getValue().toString());
-                    infoView.setText(experience.child("info").getValue().toString());
-
-                    experienceLayout.addView(nameView, 0);
-                    experienceLayout.addView(durationLoactionView, 1);
-                    experienceLayout.addView(positionView, 2);
-                    experienceLayout.addView(infoView, 3);
-
-
-                    experienceViews.add(new FirebaseExperience(experience.getKey(), experienceLayout, nameView, durationLoactionView, positionView, infoView));
+                    FirebaseExperience exp = new FirebaseExperience(
+                            EditResumeActivity.this,
+                            experience.getKey(),
+                            experience.child("position").getValue().toString(),
+                            experience.child("name").getValue().toString(),
+                            experience.child("startDate").getValue().toString(),
+                            experience.child("endDate").getValue().toString(),
+                            experience.child("city").getValue().toString(),
+                            experience.child("state").getValue().toString(),
+                            experience.child("info").getValue().toString());
+                    experienceViews.add(exp);
                 }
                 for (int i = 0; i < experienceViews.size(); i++) {
                     layout.addView(experienceViews.get(i).getLayout(), i);

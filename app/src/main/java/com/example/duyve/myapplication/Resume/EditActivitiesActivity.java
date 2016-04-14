@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -40,6 +41,13 @@ public class EditActivitiesActivity extends AppCompatActivity {
                 for (DataSnapshot activity : dataSnapshot.getChildren()) {
                     TextView textView = new TextView(EditActivitiesActivity.this);
                     textView.setText(activity.getValue().toString());
+                    textView.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            onActivityLongClick(v);
+                            return true;
+                        }
+                    });
                     textView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -60,7 +68,21 @@ public class EditActivitiesActivity extends AppCompatActivity {
         });
     }
 
-    public void onActivityClick(final View view){
+    public void onActivityClick(View view){
+
+        EditText activity = (EditText) findViewById(R.id.EditActivitiesTextNew);
+        Button submit = (Button) findViewById(R.id.EditActivitiesButtonSave);
+        submit.setText("Edit Activity");
+        for(int i = 0; i<activityViews.size();i++){
+            if(activityViews.get(i).getTextview() == view){
+                selected = activityViews.get(i);
+            }
+        }
+        activity.setText(selected.getTextview().getText().toString());
+
+    }
+
+    public void onActivityLongClick(final View view){
         new AlertDialog.Builder(this)
                 .setTitle("Delete entry")
                 .setMessage("Are you sure you want to delete this activity?")
@@ -88,9 +110,17 @@ public class EditActivitiesActivity extends AppCompatActivity {
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/activities");
         EditText activity = (EditText) findViewById(R.id.EditActivitiesTextNew);
         if(!TextUtils.isEmpty(activity.getText().toString())){
-            if(selected == null)
-            Toast.makeText(EditActivitiesActivity.this, "Added Skill Successfully!", Toast.LENGTH_SHORT).show();
-            ref.push().setValue(activity.getText().toString());
+            if(selected == null){
+                Toast.makeText(EditActivitiesActivity.this, "Added Activity Successfully!", Toast.LENGTH_SHORT).show();
+                ref.push().setValue(activity.getText().toString());
+            }
+            else{
+                Toast.makeText(EditActivitiesActivity.this, "Edited Activity Successfully!", Toast.LENGTH_SHORT).show();
+                ref.child(selected.getId()).setValue(activity.getText().toString());
+                Button button = (Button) view;
+                button.setText("Save new activity");
+                selected = null;
+            }
             activity.setText("");
         }
     }

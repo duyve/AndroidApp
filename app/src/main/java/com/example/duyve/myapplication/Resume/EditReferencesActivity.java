@@ -2,16 +2,16 @@ package com.example.duyve.myapplication.Resume;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.example.duyve.myapplication.Classes.FireaseReference;
+import com.example.duyve.myapplication.Classes.FirebaseReference;
+import com.example.duyve.myapplication.Classes.FirebaseExperience;
 import com.example.duyve.myapplication.R;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -25,13 +25,25 @@ import java.util.Map;
 public class EditReferencesActivity extends AppCompatActivity {
 
     private String id;
-    private ArrayList<FireaseReference> referenceViews = new ArrayList<>();
+    private ArrayList<FirebaseReference> referenceViews = new ArrayList<>();
+    private FirebaseReference selected;
+    private EditText referenceName;
+    private EditText referenceRelation;
+    private EditText referenceEmail;
+    private EditText referencePhone;
+    private Button submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resume_references);
+        referenceName = (EditText) findViewById(R.id.EditReferencesTextName);
+        referenceRelation = (EditText) findViewById(R.id.EditReferencesTextRelaton);
+        referenceEmail = (EditText) findViewById(R.id.EditReferencesTextEmail);
+        referencePhone = (EditText) findViewById(R.id.EditReferencesTextPhone);
+        submit = (Button) findViewById(R.id.EditReferencesButtonSave);
         id = getIntent().getStringExtra("id");
+
 
         final Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/references");
         ref.addValueEventListener(new ValueEventListener() {
@@ -41,35 +53,29 @@ public class EditReferencesActivity extends AppCompatActivity {
                 LinearLayout layout = (LinearLayout) findViewById(R.id.EditReferencesLinearLayout);
                 layout.removeAllViews();
                 for (DataSnapshot reference : dataSnapshot.getChildren()) {
-                    LinearLayout referenceLayout = new LinearLayout(EditReferencesActivity.this);
-                    referenceLayout.setOrientation(LinearLayout.VERTICAL);
-                    referenceLayout.setBackgroundColor(Color.WHITE);
-                    referenceLayout.setOnClickListener(new View.OnClickListener() {
+
+                    FirebaseReference ref = new FirebaseReference(
+                            EditReferencesActivity.this,
+                            reference.getKey(),
+                            reference.child("name").getValue().toString(),
+                            reference.child("phone").getValue().toString(),
+                            reference.child("email").getValue().toString(),
+                            reference.child("relation").getValue().toString());
+                    ref.getLayout().setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             onReferenceClick(v);
                         }
                     });
+                    ref.getLayout().setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            onReferenceLongClick(v);
+                            return true;
+                        }
+                    });
 
-                    TextView nameView = new TextView(EditReferencesActivity.this);
-                    nameView.setTextSize(20);
-                    nameView.setTextColor(Color.BLACK);
-                    TextView relationView = new TextView(EditReferencesActivity.this);
-                    TextView emailView = new TextView(EditReferencesActivity.this);
-                    TextView phoneView = new TextView(EditReferencesActivity.this);
-
-                    nameView.setText(reference.child("name").getValue().toString());
-                    relationView.setText("Relation: " + reference.child("relation").getValue().toString());
-                    emailView.setText("Email: " + reference.child("email").getValue().toString());
-                    phoneView.setText("Phone: " + reference.child("phone").getValue().toString());
-
-                    referenceLayout.addView(nameView, 0);
-                    referenceLayout.addView(relationView, 1);
-                    referenceLayout.addView(emailView, 2);
-                    referenceLayout.addView(phoneView,3);
-
-
-                    referenceViews.add(new FireaseReference(reference.getKey(), nameView, relationView, emailView, phoneView, referenceLayout));
+                    referenceViews.add(ref);
                 }
                 for (int i = 0; i < referenceViews.size(); i++) {
                     layout.addView(referenceViews.get(i).getLayout(), i);
@@ -85,6 +91,19 @@ public class EditReferencesActivity extends AppCompatActivity {
     }
 
     public void onReferenceClick(View view){
+        submit.setText("Edit Reference");
+        for(int i = 0; i<referenceViews.size();i++){
+            if(referenceViews.get(i).getLayout() == view){
+                selected = referenceViews.get(i);
+            }
+        }
+        referenceName.setText(selected.getName());
+        referenceRelation.setText(selected.getRelation());
+        referencePhone.setText(selected.getPhone());
+        referenceEmail.setText(selected.getEmail());
+    }
+
+    public void onReferenceLongClick(View view){
         final LinearLayout layout = (LinearLayout) view;
         new AlertDialog.Builder(this)
                 .setTitle("Delete entry")
@@ -111,12 +130,8 @@ public class EditReferencesActivity extends AppCompatActivity {
     public void onSaveClick(View view){
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/references");
 
-        EditText referenceName = (EditText) findViewById(R.id.EditReferencesTextName);
-        EditText referenceRelation = (EditText) findViewById(R.id.EditReferencesTextRelaton);
-        EditText referenceEmail = (EditText) findViewById(R.id.EditReferencesTextEmail);
-        EditText referencePhone = (EditText) findViewById(R.id.EditReferencesTextPhone);
         EditText[] arr = {referenceName, referenceRelation, referenceEmail, referencePhone};
-        //Check to make sue they are not empty
+        //Check to make sure they are not empty
         for(EditText text: arr){
             if(TextUtils.isEmpty(text.getText().toString())){
                 return;
@@ -128,7 +143,14 @@ public class EditReferencesActivity extends AppCompatActivity {
         map.put("email", referenceEmail.getText().toString());
         map.put("phone", referencePhone.getText().toString());
 
-        ref.push().setValue(map);
+        if(selected == null){
+            ref.push().setValue(map);
+        }
+        else {
+            ref.child(selected.getId()).setValue(map);
+            submit.setText("Save new reference");
+            selected = null;
+        }
         for(EditText text: arr){
             text.setText("");
         }
