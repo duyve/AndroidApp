@@ -1,10 +1,12 @@
 package com.example.duyve.myapplication.Settings;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,6 +25,15 @@ public class ChangePasswordActivity extends AppCompatActivity {
         setContentView(R.layout.settings_password);
         newPasswordView = (EditText) findViewById(R.id.ChangePasswordTextNewPassword);
         passwordView = (EditText) findViewById(R.id.ChangePasswordTextCurrentPassword);
+
+        EditText cur = (EditText)findViewById(R.id.ChangePasswordTextCurrentPassword);
+        EditText newer = (EditText)findViewById(R.id.ChangePasswordTextNewPassword);
+        Button change = (Button)findViewById(R.id.ChangePasswordButtonSubmit);
+        Typeface main = Typeface.createFromAsset(getAssets(), "fonts/Champagne & Limousines Bold.ttf");
+
+        cur.setTypeface(main);
+        newer.setTypeface(main);
+        change.setTypeface(main);
     }
 
     public void onClickChangePassword(View view)

@@ -1,9 +1,11 @@
 package com.example.duyve.myapplication.Settings;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.duyve.myapplication.R;
 import com.firebase.client.Firebase;
@@ -14,6 +16,16 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
+        Button email = (Button)findViewById(R.id.SettingsButtonChangeEmail);
+        Button password = (Button)findViewById(R.id.SettingsButtonChangePassword);
+        Button about = (Button)findViewById(R.id.SettingsButtonAbout);
+        Button logout = (Button)findViewById(R.id.SettingsButtonLogout);
+        Typeface main = Typeface.createFromAsset(getAssets(), "fonts/Champagne & Limousines Bold.ttf");
+
+        email.setTypeface(main);
+        password.setTypeface(main);
+        about.setTypeface(main);
+        logout.setTypeface(main);
     }
 
 

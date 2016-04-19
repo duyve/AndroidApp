@@ -1,12 +1,15 @@
 package com.example.duyve.myapplication.MainActivities;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.duyve.myapplication.Classes.ActivityCode;
@@ -14,6 +17,8 @@ import com.example.duyve.myapplication.R;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +36,16 @@ public class SignupActivity extends AppCompatActivity
         setContentView(R.layout.main_signup);
         emailView = (EditText) findViewById(R.id.SignupTextEmail);
         passwordView = (EditText) findViewById(R.id.SignupTextPassword);
+        EditText email = (EditText)findViewById(R.id.SignupTextEmail);
+        EditText password = (EditText)findViewById(R.id.SignupTextPassword);
+        Button pass = (Button)findViewById(R.id.SignupButtonSubmit);
+        TextView login = (TextView)findViewById(R.id.SignupTextLogin);
+        Typeface main = Typeface.createFromAsset(getAssets(), "fonts/Champagne & Limousines Bold.ttf");
 
+        email.setTypeface(main);
+        password.setTypeface(main);
+        pass.setTypeface(main);
+        login.setTypeface(main);
     }
 
     public void switchToLogin(View view){

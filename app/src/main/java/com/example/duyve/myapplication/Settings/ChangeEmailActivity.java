@@ -1,10 +1,12 @@
 package com.example.duyve.myapplication.Settings;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -25,6 +27,17 @@ public class ChangeEmailActivity extends AppCompatActivity {
         oldEmailView = (EditText) findViewById(R.id.ChangeEmailTextOldEmail);
         newEmailView = (EditText) findViewById(R.id.ChangeEmailTextNewEmail);
         passwordView = (EditText) findViewById(R.id.ChangeEmailTextPassword);
+
+        EditText old = (EditText)findViewById(R.id.ChangeEmailTextOldEmail);
+        EditText newer = (EditText)findViewById(R.id.ChangeEmailTextNewEmail);
+        EditText pass = (EditText)findViewById(R.id.ChangeEmailTextPassword);
+        Button change = (Button)findViewById(R.id.ChangeEmailButtonSubmit);
+        Typeface main = Typeface.createFromAsset(getAssets(), "fonts/Champagne & Limousines Bold.ttf");
+
+        old.setTypeface(main);
+        newer.setTypeface(main);
+        pass.setTypeface(main);
+        change.setTypeface(main);
     }
 
     public void onClickChangeEmail(View view)
