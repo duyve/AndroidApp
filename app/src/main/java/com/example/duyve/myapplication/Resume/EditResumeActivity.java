@@ -99,7 +99,7 @@ public class EditResumeActivity extends AppCompatActivity {
                 TextView[] arr = {name, careerTitle, email, phone, address, location};
 
                 name.setText("Name: " + dataSnapshot.child("firstName").getValue().toString() + " " + dataSnapshot.child("lastName").getValue().toString());
-                careerTitle.setText("Profesion: " + dataSnapshot.child("careerTitle").getValue().toString());
+                careerTitle.setText("Profession: " + dataSnapshot.child("careerTitle").getValue().toString());
                 email.setText("Email: " + dataSnapshot.child("email").getValue().toString());
                 phone.setText("Phone: " + dataSnapshot.child("phone").getValue().toString());
                 address.setText("Address: " + dataSnapshot.child("address").getValue().toString());
