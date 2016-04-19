@@ -90,14 +90,16 @@ public class EditResumeActivity extends AppCompatActivity {
                 layout.removeAllViews();
 
                 TextView name = new TextView(EditResumeActivity.this);
+                TextView careerTitle = new TextView(EditResumeActivity.this);
                 TextView email = new TextView(EditResumeActivity.this);
                 TextView phone = new TextView(EditResumeActivity.this);
                 TextView address = new TextView(EditResumeActivity.this);
                 TextView location = new TextView(EditResumeActivity.this);
 
-                TextView[] arr = {name, email, phone, address, location};
+                TextView[] arr = {name, careerTitle, email, phone, address, location};
 
                 name.setText("Name: " + dataSnapshot.child("firstName").getValue().toString() + " " + dataSnapshot.child("lastName").getValue().toString());
+                careerTitle.setText("Profesion: " + dataSnapshot.child("careerTitle").getValue().toString());
                 email.setText("Email: " + dataSnapshot.child("email").getValue().toString());
                 phone.setText("Phone: " + dataSnapshot.child("phone").getValue().toString());
                 address.setText("Address: " + dataSnapshot.child("address").getValue().toString());
