@@ -130,6 +130,14 @@ public class EditEducationActivity extends AppCompatActivity {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         for (int i = 0; i < educationViews.size(); i++) {
+                            if(educationViews.get(i) == selected){
+                                selected = null;
+                                submit.setText("Save new education");
+                                EditText[] arr = {educationName, educationCity, educationStartDate, educationEndDate, educationInfo};
+                                for(EditText text: arr){
+                                    text.setText("");
+                                }
+                            }
                             if (educationViews.get(i).getLayout() == layout) {
                                 layout.setAlpha((float) 0.5);
                                 Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/education/" + educationViews.get(i).getId());

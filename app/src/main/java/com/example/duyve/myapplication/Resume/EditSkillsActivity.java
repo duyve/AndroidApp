@@ -88,6 +88,13 @@ public class EditSkillsActivity extends AppCompatActivity {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         for(int i = 0; i<skillViews.size();i++){
+                            if(skillViews.get(i) == selected){
+                                selected = null;
+                                Button button = (Button) findViewById(R.id.EditSkillsButtonSave);
+                                button.setText("Save new skill");
+                                EditText skill = (EditText) findViewById(R.id.EditSkillsTextNew);
+                                skill.setText("");
+                            }
                             if(skillViews.get(i).getTextview() == view){
                                 view.setAlpha((float) 0.5);
                                 Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/skills/" +skillViews.get(i).getId());

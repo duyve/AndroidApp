@@ -83,7 +83,7 @@ public class EditResumeActivity extends AppCompatActivity {
 
     public void loadHeader(){
         Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id +"/header");
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 LinearLayout layout = (LinearLayout) findViewById(R.id.EditResumeLinearLayoutHeader);

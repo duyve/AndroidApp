@@ -111,6 +111,14 @@ public class EditReferencesActivity extends AppCompatActivity {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         for(int i = 0; i<referenceViews.size();i++){
+                            if(referenceViews.get(i) == selected){
+                                selected = null;
+                                submit.setText("Save new reference");
+                                EditText[] arr = {referenceName, referenceRelation, referenceEmail, referencePhone};
+                                for(EditText text: arr){
+                                    text.setText("");
+                                }
+                            }
                             if(referenceViews.get(i).getLayout() == layout){
                                 layout.setAlpha((float) 0.5);
                                 Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/references/" +referenceViews.get(i).getId());

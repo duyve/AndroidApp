@@ -90,6 +90,13 @@ public class EditActivitiesActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         for(int i = 0; i<activityViews.size();i++){
                             if(activityViews.get(i).getTextview() == view){
+                                if(activityViews.get(i) == selected){
+                                    selected = null;
+                                    Button button = (Button) findViewById(R.id.EditActivitiesButtonSave);
+                                    button.setText("Save new activity");
+                                    EditText activity = (EditText) findViewById(R.id.EditActivitiesTextNew);
+                                    activity.setText("");
+                                }
                                 view.setAlpha((float) 0.5);
                                 Firebase ref = new Firebase("https://sizzling-torch-8367.firebaseio.com/users/" + id + "/activities/" +activityViews.get(i).getId());
                                 ref.removeValue();
